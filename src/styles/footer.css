@@ -1,0 +1,141 @@
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #0f1d2d;
+    color: var(--white);
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 70px 24px 50px;
+
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+
+    gap: 50px;
+}
+
+/* =========================
+     BRAND
+  ========================= */
+
+.footer-brand h3 {
+    font-size: 23px;
+
+    color: var(--white);
+}
+
+.footer-brand p {
+    max-width: 320px;
+
+    margin-top: 16px;
+
+    line-height: 1.7;
+
+    color: #b8c0cc;
+}
+
+/* =========================
+     COLUMNS
+  ========================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+.footer-column h4 {
+    margin-bottom: 7px;
+
+    font-size: 15px;
+
+    color: var(--white);
+}
+
+.footer-column a,
+.footer-column p {
+    font-size: 14px;
+
+    color: #b8c0cc;
+}
+
+.footer-column a {
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: var(--blush);
+}
+
+/* =========================
+     FOOTER BOTTOM
+  ========================= */
+
+.footer-bottom {
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 22px 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    font-size: 13px;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+    color: #929cab;
+}
+
+.footer-bottom-links {
+    display: flex;
+
+    gap: 20px;
+}
+
+.footer-bottom-links a {
+    transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--blush);
+}
+
+/* =========================
+     RESPONSIVE
+  ========================= */
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        padding-top: 55px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+    }
+}
