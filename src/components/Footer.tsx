@@ -47,9 +47,9 @@ function Footer() {
                 <p>© 2026 Mayuri Web Studio. All rights reserved.</p>
 
                 <div className="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms</a>
-                    <a href="#">Cookies</a>
+                    <Link to="/privacy">Privacy Policy</Link>
+                    <Link to="/terms">Terms</Link>
+                    <Link to="/cookies">Cookies</Link>
                 </div>
             </div>
         </footer>

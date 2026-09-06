@@ -55,53 +55,11 @@ function Home() {
 
                         {/* HERO WEBSITE PREVIEW */}
                         <div className="hero-visual">
-                            <div className="browser-card">
-                                <div className="browser-top">
-                                    <span />
-                                    <span />
-                                    <span />
-                                </div>
-
-                                <div className="browser-content">
-                                    <div className="browser-badge">
-                                        Your Business
-                                    </div>
-
-                                    <h3>
-                                        A modern website
-                                        <br />
-                                        built for growth
-                                    </h3>
-
-                                    <p>
-                                        Professional design, clear messaging and a better
-                                        experience for your customers.
-                                    </p>
-
-                                    <Link
-                                        to="/contact"
-                                        className="browser-quote-btn"
-                                    >
-                                        Request a Quote
-                                    </Link>
-
-                                    <div className="browser-grid">
-                                        <div className="browser-box" />
-                                        <div className="browser-box" />
-                                        <div className="browser-box" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="floating-card floating-card-one">
-                                <strong>Fast</strong>
-                                <span>Optimized performance</span>
-                            </div>
-
-                            <div className="floating-card floating-card-two">
-                                <strong>Responsive</strong>
-                                <span>Looks great everywhere</span>
-                            </div>
+                            <img
+                                src="/images/home-hero.png"
+                                alt="Mayuri Web Studio creating modern websites for small businesses"
+                                className="hero-image"
+                            />
                         </div>
                     </div>
                 </section>
@@ -201,145 +159,82 @@ function Home() {
                         <div className="portfolio-grid">
                             {/* CLEANING */}
                             <article className="portfolio-card">
-                                <div className="portfolio-image">
-                                    <div className="portfolio-browser">
-                                        <div className="portfolio-browser-top">
-                                            <span />
-                                            <span />
-                                            <span />
-                                        </div>
+                                <div className="portfolio-project-image">
+                                    <img
+                                        src="/images/fresh-clean.png"
+                                        alt="Fresh & Clean Stockholm responsive cleaning website concept"
+                                    />
 
-                                        <div className="portfolio-browser-content cleaning-project">
-                                            <div className="project-small-label">
-                                                Cleaning Services
-                                            </div>
-
-                                            <h3>Fresh & Clean Stockholm</h3>
-
-                                            <p>
-                                                Professional home and office cleaning services.
-                                            </p>
-
-                                            <Link
-                                                to="/portfolio/fresh-clean-stockholm"
-                                                className="portfolio-preview-btn"
-                                            >
-                                                View Demo
-                                            </Link>
-
-                                            <div className="project-lines">
-                                                <span />
-                                                <span />
-                                                <span />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <span className="portfolio-image-badge">
+                                        Live Demo
+                                    </span>
                                 </div>
 
                                 <div className="portfolio-card-content">
                                     <span className="project-category">
-                                        Cleaning Company
+                                        Cleaning Business
                                     </span>
 
                                     <h3>Fresh & Clean Stockholm</h3>
 
                                     <p>
-                                        A clean, modern website concept focused on services,
-                                        customer trust and quote requests.
+                                        A modern and responsive website concept for a Stockholm
+                                        cleaning company, designed to clearly present services and
+                                        encourage customers to request a quote.
                                     </p>
 
-                                    <Link to="/portfolio/fresh-clean-stockholm">
-                                        View project →
+                                    <Link
+                                        to="/portfolio/fresh-clean-stockholm"
+                                        className="portfolio-project-link"
+                                    >
+                                        View Demo →
                                     </Link>
                                 </div>
                             </article>
 
                             {/* BEAUTY */}
                             <article className="portfolio-card">
-                                <div className="portfolio-image">
-                                    <div className="portfolio-browser">
-                                        <div className="portfolio-browser-top">
-                                            <span />
-                                            <span />
-                                            <span />
-                                        </div>
+                                <div className="portfolio-project-image">
+                                    <img
+                                        src="/images/nordic-beauty.png"
+                                        alt="Nordic Beauty Studio responsive beauty salon website concept"
+                                    />
 
-                                        <div className="portfolio-browser-content salon-project">
-                                            <div className="project-small-label">
-                                                Beauty Salon
-                                            </div>
-
-                                            <h3>Nordic Beauty Studio</h3>
-
-                                            <p>
-                                                Beauty treatments in a relaxing and modern
-                                                environment.
-                                            </p>
-
-                                            <span className="portfolio-demo-label">
-                                                Coming Soon
-                                            </span>
-
-                                            <div className="project-lines">
-                                                <span />
-                                                <span />
-                                                <span />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <span className="portfolio-image-badge portfolio-coming-badge">
+                                        Coming Soon
+                                    </span>
                                 </div>
 
                                 <div className="portfolio-card-content">
                                     <span className="project-category">
-                                        Beauty Salon
+                                        Beauty & Wellness
                                     </span>
 
                                     <h3>Nordic Beauty Studio</h3>
 
                                     <p>
-                                        A stylish salon website with clear treatments, pricing
-                                        and booking-focused calls to action.
+                                        An elegant and responsive website concept for a beauty studio,
+                                        designed to showcase treatments, build trust and encourage
+                                        appointment bookings.
                                     </p>
 
-                                    <Link to="/portfolio">
-                                        View portfolio →
-                                    </Link>
+                                    <span className="portfolio-coming-soon">
+                                        Demo Coming Soon
+                                    </span>
                                 </div>
                             </article>
 
                             {/* RESTAURANT */}
                             <article className="portfolio-card">
-                                <div className="portfolio-image">
-                                    <div className="portfolio-browser">
-                                        <div className="portfolio-browser-top">
-                                            <span />
-                                            <span />
-                                            <span />
-                                        </div>
+                                <div className="portfolio-project-image">
+                                    <img
+                                        src="/images/spice-house.png"
+                                        alt="Spice House responsive restaurant website concept"
+                                    />
 
-                                        <div className="portfolio-browser-content restaurant-project">
-                                            <div className="project-small-label">
-                                                Restaurant
-                                            </div>
-
-                                            <h3>Spice House</h3>
-
-                                            <p>
-                                                Authentic food, fresh ingredients and warm
-                                                hospitality.
-                                            </p>
-
-                                            <span className="portfolio-demo-label">
-                                                Coming Soon
-                                            </span>
-
-                                            <div className="project-lines">
-                                                <span />
-                                                <span />
-                                                <span />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <span className="portfolio-image-badge portfolio-coming-badge">
+                                        Coming Soon
+                                    </span>
                                 </div>
 
                                 <div className="portfolio-card-content">
@@ -350,13 +245,14 @@ function Home() {
                                     <h3>Spice House</h3>
 
                                     <p>
-                                        A restaurant concept highlighting the menu, opening
-                                        hours, location and reservations.
+                                        A warm and modern restaurant website concept designed to
+                                        showcase dishes, present the menu and encourage customers
+                                        to make a reservation.
                                     </p>
 
-                                    <Link to="/portfolio">
-                                        View portfolio →
-                                    </Link>
+                                    <span className="portfolio-coming-soon">
+                                        Demo Coming Soon
+                                    </span>
                                 </div>
                             </article>
                         </div>
@@ -532,7 +428,42 @@ function Home() {
                         </div>
                     </div>
                 </section>
+                {/* TESTIMONIALS */}
+                <section className="testimonials">
+                    <div className="section-container">
+                        <div className="section-heading">
+                            <p className="section-label">Client Feedback</p>
 
+                            <h2>What Clients Say</h2>
+
+                            <p>
+                                Feedback from businesses I’ve worked with.
+                            </p>
+                        </div>
+
+                        <div className="testimonial-grid">
+                            <article className="testimonial-card">
+                                <div className="testimonial-stars">★★★★★</div>
+
+                                <p className="testimonial-text">
+                                    “Mayuri was easy to work with and created a clean,
+                                    professional website that works well on mobile.”
+                                </p>
+
+                                <div className="testimonial-author">
+                                    <div className="testimonial-avatar">
+                                        <span>M</span>
+                                    </div>
+
+                                    <div>
+                                        <strong>Client Name</strong>
+                                        <span>Business Name</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
                 {/* FINAL CTA */}
                 <section className="final-cta">
                     <div className="section-container final-cta-container">

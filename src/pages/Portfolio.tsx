@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+
 import '../styles/portfolio.css';
 
 type Project = {
@@ -9,6 +10,7 @@ type Project = {
     filterCategory: string;
     description: string;
     link: string;
+    image?: string;
 };
 
 function Portfolio() {
@@ -22,22 +24,25 @@ function Portfolio() {
             description:
                 'A clean and modern website concept focused on services, trust and making it easy for customers to request a quote.',
             link: '/portfolio/fresh-clean-stockholm',
-        },
-        {
-            title: 'Spice House',
-            category: 'Restaurant',
-            filterCategory: 'Restaurant',
-            description:
-                'A warm restaurant website concept designed around menu information, location details and reservations.',
-            link: '#',
+            image: '/images/fresh-clean.png',
         },
         {
             title: 'Nordic Beauty Studio',
             category: 'Beauty Salon',
             filterCategory: 'Beauty',
             description:
-                'A modern beauty salon concept focused on treatments, pricing and helping customers find booking information quickly.',
+                'An elegant beauty website concept focused on treatments, trust and helping customers find booking information quickly.',
             link: '#',
+            image: '/images/nordic-beauty.png',
+        },
+        {
+            title: 'Spice House',
+            category: 'Restaurant',
+            filterCategory: 'Restaurant',
+            description:
+                'A warm restaurant website concept designed around menu information, food presentation and reservations.',
+            link: '#',
+            image: '/images/spice-house.png',
         },
         {
             title: 'Nordic Consulting',
@@ -46,6 +51,7 @@ function Portfolio() {
             description:
                 'A professional business website concept for consultants and service-based companies that want a trustworthy online presence.',
             link: '#',
+            image: '/images/nordic-consulting.png'
         },
         {
             title: 'Nordic Lens',
@@ -54,6 +60,7 @@ function Portfolio() {
             description:
                 'A clean visual portfolio concept created to showcase photography work and help potential clients make contact.',
             link: '#',
+            image: '/images/nordic-lens.png'
         },
         {
             title: 'Stockholm Corner',
@@ -62,6 +69,7 @@ function Portfolio() {
             description:
                 'A simple local-business website concept with clear services, location information and easy ways for customers to get in touch.',
             link: '#',
+            image: '/images/stockholm-corner.png'
         },
     ];
 
@@ -93,7 +101,6 @@ function Portfolio() {
             </Helmet>
 
             <main>
-                {/* HERO */}
                 <section className="portfolio-hero">
                     <div className="portfolio-hero-container">
                         <p className="section-label">My Work</p>
@@ -101,14 +108,13 @@ function Portfolio() {
                         <h1>Website Concepts for Small Businesses</h1>
 
                         <p>
-                            Explore demo website concepts created to show how different
-                            businesses can build a modern, professional and customer-friendly
-                            online presence.
+                            Explore demo website concepts created to show how
+                            different businesses can build a modern,
+                            professional and customer-friendly online presence.
                         </p>
                     </div>
                 </section>
 
-                {/* PORTFOLIO */}
                 <section className="portfolio-page-section">
                     <div className="section-container">
                         <div className="portfolio-filters">
@@ -116,7 +122,9 @@ function Portfolio() {
                                 <button
                                     key={filter}
                                     type="button"
-                                    className={activeFilter === filter ? 'active' : ''}
+                                    className={
+                                        activeFilter === filter ? 'active' : ''
+                                    }
                                     onClick={() => setActiveFilter(filter)}
                                 >
                                     {filter}
@@ -125,54 +133,70 @@ function Portfolio() {
                         </div>
 
                         <div className="portfolio-page-grid">
-                            {filteredProjects.map((project, index) => (
+                            {filteredProjects.map((project) => (
                                 <article
                                     className="portfolio-project-card"
                                     key={project.title}
                                 >
-                                    <div
-                                        className={`project-preview project-${index + 1}`}
-                                    >
-                                        <div className="mini-browser">
-                                            <div className="mini-browser-top">
-                                                <span />
-                                                <span />
-                                                <span />
-                                            </div>
+                                    {project.image ? (
+                                        <div className="portfolio-project-image">
+                                            <img
+                                                src={project.image}
+                                                alt={`${project.title} website concept`}
+                                            />
 
-                                            <div className="mini-browser-content">
-                                                <span className="mini-label">
-                                                    {project.category}
-                                                </span>
-
-                                                <h2>{project.title}</h2>
-
-                                                <p>
-                                                    Modern design for a stronger online presence.
-                                                </p>
-
-                                                {project.link === '#' ? (
-                                                    <span className="portfolio-coming-soon">
-                                                        Coming Soon
-                                                    </span>
-                                                ) : (
-                                                    <Link
-                                                        to={project.link}
-                                                        className="portfolio-view-button"
-                                                    >
-                                                        View Concept
-                                                    </Link>
-                                                )}
-                                            </div>
+                                            <span
+                                                className={`project-status ${project.link === '#'
+                                                    ? 'coming-soon-status'
+                                                    : 'live-demo-status'
+                                                    }`}
+                                            >
+                                                {project.link === '#'
+                                                    ? 'Coming Soon'
+                                                    : 'Live Demo'}
+                                            </span>
                                         </div>
-                                    </div>
+                                    ) : (
+                                        <div className="project-placeholder">
+                                            <span>
+                                                {project.category}
+                                            </span>
+
+                                            <h2>
+                                                {project.title}
+                                            </h2>
+
+                                            <p>
+                                                Website concept in development.
+                                            </p>
+                                        </div>
+                                    )}
 
                                     <div className="project-info">
-                                        <span>{project.category}</span>
+                                        <span>
+                                            {project.category}
+                                        </span>
 
-                                        <h3>{project.title}</h3>
+                                        <h3>
+                                            {project.title}
+                                        </h3>
 
-                                        <p>{project.description}</p>
+                                        <p>
+                                            {project.description}
+                                        </p>
+
+                                        {project.link === '#' ? (
+                                            <span className="portfolio-coming-soon">
+                                                Demo Coming Soon
+                                            </span>
+                                        ) : (
+                                            <Link
+                                                to={project.link}
+                                                className="portfolio-view-button"
+                                            >
+                                                View Demo →
+                                            </Link>
+                                        )}
                                     </div>
                                 </article>
                             ))}
@@ -180,7 +204,6 @@ function Portfolio() {
                     </div>
                 </section>
 
-                {/* CTA */}
                 <section className="portfolio-bottom-cta">
                     <div className="section-container">
                         <div className="portfolio-bottom-card">
@@ -195,8 +218,8 @@ function Portfolio() {
 
                                 <p>
                                     Tell me about your business and what you need.
-                                    I’ll help you plan a simple and practical website
-                                    that fits your goals.
+                                    I’ll help you plan a simple and practical
+                                    website that fits your goals.
                                 </p>
                             </div>
 

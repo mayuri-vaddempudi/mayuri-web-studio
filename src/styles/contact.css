@@ -19,6 +19,7 @@
 
 .contact-hero h1 {
     max-width: 750px;
+
     margin-top: 10px;
 
     font-size: clamp(44px, 6vw, 68px);
@@ -30,6 +31,7 @@
 
 .contact-hero p:last-child {
     max-width: 650px;
+
     margin-top: 20px;
 
     font-size: 18px;
@@ -39,8 +41,8 @@
 }
 
 /* =========================
-     CONTACT SECTION
-  ========================= */
+   CONTACT SECTION
+========================= */
 
 .contact-section {
     padding: 100px 24px;
@@ -53,6 +55,7 @@
     grid-template-columns: 0.85fr 1.15fr;
 
     gap: 80px;
+
     align-items: start;
 }
 
@@ -77,15 +80,15 @@
 }
 
 /* =========================
-     CONTACT DETAILS
-  ========================= */
+   CONTACT DETAILS
+========================= */
 
 .contact-details {
     margin-top: 40px;
 
     display: grid;
 
-    gap: 16px;
+    gap: 14px;
 }
 
 .contact-detail-card {
@@ -94,10 +97,10 @@
     display: flex;
     flex-direction: column;
 
-    gap: 6px;
+    gap: 7px;
 
     border: 1px solid #e7e9f1;
-    border-radius: 12px;
+    border-radius: 13px;
 
     background: #fafafa;
 
@@ -116,13 +119,13 @@
 }
 
 .contact-detail-card span {
-    font-size: 12px;
+    color: #858c99;
+
+    font-size: 11px;
     font-weight: 700;
 
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-
-    color: #858c99;
+    letter-spacing: 0.8px;
 }
 
 .contact-detail-card strong,
@@ -137,19 +140,56 @@
 }
 
 /* =========================
-     CONTACT FORM
-  ========================= */
+   FORM WRAPPER
+========================= */
 
 .contact-form-wrapper {
-    padding: 40px;
+    padding: 42px;
 
     border: 1px solid #e7e9f1;
-    border-radius: 20px;
+    border-radius: 22px;
 
     background: var(--white);
 
     box-shadow: 0 20px 50px rgba(31, 41, 55, 0.08);
 }
+
+.contact-form-heading {
+    margin-bottom: 32px;
+}
+
+.contact-form-heading>span {
+    color: #9d6267;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-form-heading h2 {
+    margin-top: 8px;
+
+    font-size: 30px;
+    line-height: 1.2;
+
+    color: var(--text);
+}
+
+.contact-form-heading p {
+    max-width: 520px;
+
+    margin-top: 10px;
+
+    line-height: 1.7;
+
+    color: var(--muted);
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
 
 .contact-form {
     display: grid;
@@ -165,10 +205,10 @@
 }
 
 .form-group label {
+    color: #30384a;
+
     font-size: 14px;
     font-weight: 700;
-
-    color: #30384a;
 }
 
 .form-group input,
@@ -176,10 +216,10 @@
 .form-group textarea {
     width: 100%;
 
-    padding: 13px 14px;
+    padding: 14px 15px;
 
     border: 1px solid #dfe2ea;
-    border-radius: 8px;
+    border-radius: 9px;
 
     background: var(--white);
     color: #30384a;
@@ -190,11 +230,14 @@
 
     transition:
         border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 .form-group textarea {
     resize: vertical;
+
+    min-height: 150px;
 }
 
 .form-group input:hover,
@@ -211,15 +254,22 @@
     box-shadow: 0 0 0 3px rgba(41, 73, 107, 0.1);
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a0a6b2;
+}
+
 /* =========================
-     SUBMIT BUTTON
-  ========================= */
+   SUBMIT BUTTON
+========================= */
 
 .contact-submit-btn {
-    padding: 14px 22px;
+    width: 100%;
+
+    padding: 15px 22px;
 
     border: none;
-    border-radius: 8px;
+    border-radius: 9px;
 
     background: var(--navy);
     color: var(--white);
@@ -229,6 +279,8 @@
 
     cursor: pointer;
 
+    box-shadow: 0 10px 25px rgba(20, 36, 58, 0.14);
+
     transition:
         background 0.2s ease,
         transform 0.2s ease,
@@ -236,35 +288,34 @@
 }
 
 .contact-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+
     background: var(--navy-light);
 
-    transform: translateY(-1px);
-
-    box-shadow: 0 10px 22px rgba(20, 36, 58, 0.16);
+    box-shadow: 0 14px 30px rgba(20, 36, 58, 0.2);
 }
 
 .contact-submit-btn:disabled {
-    opacity: 0.7;
-
+    opacity: 0.65;
     cursor: not-allowed;
-
-    transform: none;
 }
 
 /* =========================
-     FORM NOTE
-  ========================= */
+   FORM NOTE
+========================= */
 
 .form-note {
-    font-size: 12px;
-    line-height: 1.6;
+    text-align: center;
 
     color: #858c99;
+
+    font-size: 12px;
+    line-height: 1.6;
 }
 
 /* =========================
-     VALIDATION
-  ========================= */
+   VALIDATION
+========================= */
 
 .input-error {
     border-color: #dc2626 !important;
@@ -273,24 +324,25 @@
 .input-error:focus {
     border-color: #dc2626 !important;
 
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+    box-shadow:
+        0 0 0 3px rgba(220, 38, 38, 0.1) !important;
 }
 
 .error-message {
-    font-size: 12px;
-
     color: #dc2626;
+
+    font-size: 12px;
 }
 
 /* =========================
-     SUCCESS MESSAGE
-  ========================= */
+   SUCCESS
+========================= */
 
 .success-message {
     padding: 14px 16px;
 
     border: 1px solid #bbf7d0;
-    border-radius: 8px;
+    border-radius: 9px;
 
     background: #f0fdf4;
     color: #166534;
@@ -300,14 +352,14 @@
 }
 
 /* =========================
-     FORM ERROR MESSAGE
-  ========================= */
+   ERROR
+========================= */
 
 .form-error-message {
     padding: 14px 16px;
 
     border: 1px solid #fecaca;
-    border-radius: 8px;
+    border-radius: 9px;
 
     background: #fef2f2;
     color: #991b1b;
@@ -317,8 +369,8 @@
 }
 
 /* =========================
-     RESPONSIVE
-  ========================= */
+   RESPONSIVE
+========================= */
 
 @media (max-width: 900px) {
     .contact-container {
@@ -338,11 +390,19 @@
         letter-spacing: -1px;
     }
 
+    .contact-hero p:last-child {
+        font-size: 16px;
+    }
+
     .contact-section {
         padding: 70px 20px;
     }
 
     .contact-form-wrapper {
-        padding: 26px 20px;
+        padding: 28px 20px;
+    }
+
+    .contact-form-heading h2 {
+        font-size: 26px;
     }
 }

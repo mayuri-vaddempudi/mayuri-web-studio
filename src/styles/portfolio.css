@@ -19,6 +19,7 @@
 
 .portfolio-hero h1 {
     max-width: 760px;
+
     margin-top: 10px;
 
     font-size: clamp(44px, 6vw, 68px);
@@ -30,6 +31,7 @@
 
 .portfolio-hero p:last-child {
     max-width: 650px;
+
     margin-top: 20px;
 
     font-size: 18px;
@@ -39,12 +41,11 @@
 }
 
 /* =========================
-     PORTFOLIO SECTION
-  ========================= */
+   PORTFOLIO SECTION
+========================= */
 
 .portfolio-page-section {
     padding: 90px 24px;
-
     background: var(--white);
 }
 
@@ -55,7 +56,6 @@
 
     display: flex;
     gap: 12px;
-
     flex-wrap: wrap;
 }
 
@@ -81,33 +81,32 @@
 
 .portfolio-filters button:hover {
     border-color: var(--blush);
-
     color: var(--navy);
 }
 
 .portfolio-filters button.active {
+    border-color: var(--navy);
+
     background: var(--navy);
     color: var(--white);
-
-    border-color: var(--navy);
 }
 
 /* =========================
-     PORTFOLIO GRID
-  ========================= */
+   GRID
+========================= */
 
 .portfolio-page-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 28px;
+    gap: 30px;
 }
 
 .portfolio-project-card {
     overflow: hidden;
 
     border: 1px solid #e7e9f1;
-    border-radius: 18px;
+    border-radius: 20px;
 
     background: var(--white);
 
@@ -128,162 +127,137 @@
 }
 
 /* =========================
-     PROJECT PREVIEW
-  ========================= */
+   PROJECT IMAGE
+========================= */
 
-.project-preview {
-    padding: 24px;
+.portfolio-project-image {
+    position: relative;
 
-    background: #fafafa;
-}
+    width: 100%;
+    aspect-ratio: 3 / 2;
 
-.mini-browser {
     overflow: hidden;
 
-    border-radius: 12px;
-
-    background: var(--white);
-
-    box-shadow: 0 10px 25px rgba(31, 41, 55, 0.1);
+    background: #f5f6f8;
 }
 
-.mini-browser-top {
-    height: 30px;
-    padding: 0 10px;
+.portfolio-project-image img {
+    width: 100%;
+    height: 100%;
 
-    display: flex;
-    align-items: center;
+    display: block;
 
-    gap: 6px;
+    object-fit: cover;
+    object-position: center;
 
-    background: #f1f2f6;
+    transition: transform 0.4s ease;
 }
 
-.mini-browser-top span {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #c4c8d3;
+.portfolio-project-card:hover .portfolio-project-image img {
+    transform: scale(1.035);
 }
 
-.mini-browser-content {
-    min-height: 260px;
+/* Status badge */
 
-    padding: 32px;
-}
+.project-status {
+    position: absolute;
+    top: 18px;
+    right: 18px;
 
-.mini-label {
-    color: var(--navy-light);
+    padding: 8px 13px;
 
-    font-size: 11px;
+    border-radius: 999px;
+
+    font-size: 12px;
     font-weight: 700;
 
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    box-shadow: 0 6px 18px rgba(20, 36, 58, 0.12);
 }
 
-.mini-browser-content h2 {
-    max-width: 300px;
-
-    margin-top: 12px;
-
-    font-size: 30px;
-    line-height: 1.15;
-
-    color: #252d3d;
+.live-demo-status {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--navy);
 }
 
-.mini-browser-content p {
-    max-width: 300px;
-
-    margin-top: 14px;
-
-    line-height: 1.6;
-
-    color: #707888;
-}
-
-.mini-browser-content button {
-    margin-top: 20px;
-    padding: 10px 15px;
-
-    border: none;
-    border-radius: 7px;
-
-    background: var(--navy);
+.coming-soon-status {
+    background: rgba(20, 36, 58, 0.9);
     color: var(--white);
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-.mini-browser-content button:hover {
-    background: var(--navy-light);
-
-    transform: translateY(-1px);
 }
 
 /* =========================
-     PROJECT BACKGROUNDS
-  ========================= */
+   PLACEHOLDER PROJECTS
+========================= */
 
-.project-1 .mini-browser-content {
-    background: #fff8f8;
+.project-placeholder {
+    min-height: 330px;
+
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background:
+        radial-gradient(circle at 80% 20%,
+            rgba(231, 165, 167, 0.25),
+            transparent 30%),
+        linear-gradient(135deg, #fafafa, #f3f5f8);
 }
 
-.project-2 .mini-browser-content {
-    background: #fffaf3;
-}
-
-.project-3 .mini-browser-content {
-    background: #fff6f7;
-}
-
-.project-4 .mini-browser-content {
-    background: #f7f9fb;
-}
-
-.project-5 .mini-browser-content {
-    background: #f5fbff;
-}
-
-.project-6 .mini-browser-content {
-    background: #fff9f1;
-}
-
-/* =========================
-     PROJECT INFORMATION
-  ========================= */
-
-.project-info {
-    padding: 24px;
-}
-
-.project-info>span {
+.project-placeholder span {
     color: var(--navy-light);
 
     font-size: 12px;
     font-weight: 700;
 
     text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-placeholder h2 {
+    margin-top: 12px;
+
+    font-size: 32px;
+    line-height: 1.1;
+
+    color: var(--navy);
+}
+
+.project-placeholder p {
+    margin-top: 14px;
+
+    color: var(--muted);
+}
+
+/* =========================
+   PROJECT INFO
+========================= */
+
+.project-info {
+    padding: 28px;
+}
+
+.project-info>span:first-child {
+    color: var(--navy-light);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
 }
 
 .project-info h3 {
     margin-top: 8px;
 
-    font-size: 22px;
+    font-size: 23px;
 
     color: #252d3d;
 }
 
 .project-info p {
+    min-height: 82px;
+
     margin-top: 12px;
 
     line-height: 1.7;
@@ -292,8 +266,52 @@
 }
 
 /* =========================
-     BOTTOM CTA
-  ========================= */
+   BUTTONS / STATUS
+========================= */
+
+.portfolio-view-button {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    background: var(--navy);
+    color: var(--white);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.portfolio-view-button:hover {
+    transform: translateY(-2px);
+
+    background: var(--navy-light);
+}
+
+.portfolio-coming-soon {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    background: var(--blush-light);
+    color: #9d6267;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================
+   BOTTOM CTA
+========================= */
 
 .portfolio-bottom-cta {
     padding: 80px 24px;
@@ -355,49 +373,14 @@
 }
 
 .portfolio-cta-button:hover {
-    background: var(--navy-light);
-
     transform: translateY(-2px);
-}
 
-.portfolio-view-button {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 10px 16px;
-    border-radius: 8px;
-
-    background: var(--navy);
-    color: var(--white);
-
-    font-size: 14px;
-    font-weight: 600;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-.portfolio-view-button:hover {
     background: var(--navy-light);
-    transform: translateY(-1px);
-}
-
-.portfolio-coming-soon {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 10px 16px;
-    border-radius: 8px;
-
-    background: #eef1f5;
-    color: var(--muted);
-
-    font-size: 14px;
-    font-weight: 600;
 }
 
 /* =========================
-     RESPONSIVE
-  ========================= */
+   RESPONSIVE
+========================= */
 
 @media (max-width: 850px) {
     .portfolio-page-grid {
@@ -408,11 +391,15 @@
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .project-info p {
+        min-height: auto;
+    }
 }
 
 @media (max-width: 600px) {
     .portfolio-hero {
-        padding-top: 75px;
+        padding: 75px 20px 65px;
     }
 
     .portfolio-hero h1 {
@@ -420,18 +407,38 @@
         letter-spacing: -1px;
     }
 
+    .portfolio-hero p:last-child {
+        font-size: 16px;
+    }
+
     .portfolio-page-section {
         padding: 70px 20px;
     }
 
-    .project-preview {
-        padding: 14px;
+    .portfolio-filters {
+        gap: 9px;
     }
 
-    .mini-browser-content {
-        min-height: 220px;
+    .portfolio-filters button {
+        padding: 9px 14px;
+        font-size: 13px;
+    }
 
-        padding: 24px;
+    .project-placeholder {
+        min-height: 250px;
+        padding: 28px;
+    }
+
+    .project-placeholder h2 {
+        font-size: 27px;
+    }
+
+    .project-info {
+        padding: 22px;
+    }
+
+    .portfolio-bottom-cta {
+        padding: 65px 20px;
     }
 
     .portfolio-bottom-card {
