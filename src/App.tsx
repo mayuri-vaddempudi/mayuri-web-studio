@@ -20,13 +20,18 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Cookies from './pages/Cookies';
 import FreshCleanStockholm from './pages/FreshCleanStockholm';
+import NordicBeautyStudio from './pages/NordicBeautyStudio';
+import SpiceHouse from './pages/SpiceHouse';
 
 function AppContent() {
   const location = useLocation();
   const { i18n } = useTranslation();
 
-  const isFreshCleanDemo =
-    location.pathname === '/portfolio/fresh-clean-stockholm';
+
+  const isPortfolioDemo =
+    location.pathname === '/portfolio/fresh-clean-stockholm' ||
+    location.pathname === '/portfolio/nordic-beauty-studio' ||
+    location.pathname === '/portfolio/spice-house';
 
   // Update the HTML language attribute when the user
   // switches between English and Swedish.
@@ -39,7 +44,7 @@ function AppContent() {
     <>
       <ScrollToTop />
 
-      {!isFreshCleanDemo && <Header />}
+      {!isPortfolioDemo && <Header />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -55,9 +60,17 @@ function AppContent() {
           path="/portfolio/fresh-clean-stockholm"
           element={<FreshCleanStockholm />}
         />
+        <Route
+          path="/portfolio/nordic-beauty-studio"
+          element={<NordicBeautyStudio />}
+        />
+        <Route
+          path="/portfolio/spice-house"
+          element={<SpiceHouse />}
+        />
       </Routes>
 
-      {!isFreshCleanDemo && <Footer />}
+      {!isPortfolioDemo && <Footer />}
     </>
   );
 }

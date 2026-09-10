@@ -32,7 +32,7 @@ function Portfolio() {
             category: t('portfolioPage.projects.beauty.category'),
             filterCategory: 'Beauty',
             description: t('portfolioPage.projects.beauty.description'),
-            link: '#',
+            link: '/portfolio/nordic-beauty-studio',
             image: '/images/nordic-beauty.png',
         },
         {
@@ -40,7 +40,7 @@ function Portfolio() {
             category: t('portfolioPage.projects.spiceHouse.category'),
             filterCategory: 'Restaurant',
             description: t('portfolioPage.projects.spiceHouse.description'),
-            link: '#',
+            link: '/portfolio/spice-house',
             image: '/images/spice-house.png',
         },
         {

@@ -1,0 +1,553 @@
+.spice-demo {
+    --spice-dark: #161310;
+    --spice-dark-soft: #211c17;
+    --spice-cream: #f5ecdf;
+    --spice-gold: #c99a52;
+    --spice-rust: #a9472d;
+    --spice-muted: #b9aa98;
+
+    min-height: 100vh;
+    background: var(--spice-dark);
+    color: var(--spice-cream);
+}
+
+.spice-demo * {
+    box-sizing: border-box;
+}
+
+.spice-demo-bar {
+    min-height: 38px;
+    padding: 8px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #0d0b09;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
+}
+
+.spice-demo-bar a {
+    color: var(--spice-cream);
+    text-decoration: none;
+}
+
+.spice-header {
+    height: 90px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--spice-dark);
+}
+
+.spice-logo {
+    color: var(--spice-cream);
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+
+.spice-logo span {
+    display: block;
+    color: var(--spice-gold);
+    font-size: 27px;
+    letter-spacing: 8px;
+}
+
+.spice-header nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.spice-header nav a {
+    color: var(--spice-cream);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.spice-header .spice-reserve-nav {
+    padding: 13px 20px;
+    border: 1px solid var(--spice-gold);
+    color: var(--spice-gold);
+}
+
+.spice-hero {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.spice-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spice-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg,
+            rgba(13, 10, 8, 0.94) 0%,
+            rgba(13, 10, 8, 0.72) 42%,
+            rgba(13, 10, 8, 0.10) 100%);
+}
+
+.spice-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 88%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.spice-eyebrow {
+    margin: 0 0 18px;
+    color: var(--spice-gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.spice-hero h1 {
+    max-width: 720px;
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(58px, 7vw, 100px);
+    font-weight: 400;
+    line-height: 0.95;
+}
+
+.spice-hero h1 span {
+    display: block;
+    color: var(--spice-gold);
+    font-style: italic;
+}
+
+.spice-hero-description {
+    max-width: 520px;
+    margin: 30px 0 0;
+    color: #d4c9bd;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.spice-hero-actions {
+    margin-top: 38px;
+    display: flex;
+    gap: 15px;
+}
+
+.spice-primary-button,
+.spice-secondary-button {
+    padding: 15px 24px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.spice-primary-button {
+    background: var(--spice-rust);
+    color: white;
+}
+
+.spice-secondary-button {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: white;
+}
+
+.spice-primary-button:hover,
+.spice-secondary-button:hover {
+    transform: translateY(-2px);
+}
+
+.spice-scroll {
+    position: absolute;
+    z-index: 2;
+    right: 6%;
+    bottom: 35px;
+    display: flex;
+    gap: 15px;
+    color: #d2c3b3;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.spice-intro {
+    padding: 120px 24px;
+    text-align: center;
+    background: var(--spice-cream);
+    color: var(--spice-dark);
+}
+
+.spice-intro h2 {
+    max-width: 850px;
+    margin: 15px auto 30px;
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 6vw, 70px);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.spice-intro h2 em {
+    color: var(--spice-rust);
+    font-weight: 400;
+}
+
+.spice-intro>p:last-child {
+    max-width: 690px;
+    margin: auto;
+    color: #6f6256;
+    line-height: 1.9;
+}
+
+.spice-menu {
+    max-width: 1300px;
+    margin: auto;
+    padding: 110px 6%;
+}
+
+.spice-section-heading {
+    margin-bottom: 65px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.spice-section-heading h2,
+.spice-feature-content h2,
+.spice-reservation h2,
+.spice-visit h2 {
+    margin: 10px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 400;
+}
+
+.spice-section-heading>p {
+    max-width: 430px;
+    color: var(--spice-muted);
+    line-height: 1.8;
+}
+
+.spice-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 60px;
+}
+
+.spice-dish {
+    min-height: 170px;
+    padding: 30px 0;
+    display: flex;
+    gap: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.spice-dish-number {
+    color: var(--spice-gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.spice-dish-content {
+    flex: 1;
+}
+
+.spice-dish-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.spice-dish-title h3 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.spice-dish-title span {
+    color: var(--spice-gold);
+    white-space: nowrap;
+}
+
+.spice-dish p {
+    max-width: 420px;
+    color: var(--spice-muted);
+    line-height: 1.7;
+}
+
+.spice-menu-cta {
+    margin-top: 45px;
+    text-align: center;
+}
+
+.spice-menu-cta a,
+.spice-feature-content a {
+    color: var(--spice-gold);
+    text-decoration: none;
+}
+
+.spice-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--spice-cream);
+    color: var(--spice-dark);
+}
+
+.spice-feature-image {
+    min-height: 650px;
+}
+
+.spice-feature-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.spice-feature-content {
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.spice-feature-content p:not(.spice-eyebrow) {
+    color: #6f6256;
+    line-height: 1.9;
+}
+
+.spice-feature-content a {
+    margin-top: 20px;
+    color: var(--spice-rust);
+}
+
+.spice-experience {
+    padding: 100px 6%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.spice-experience>div {
+    padding: 20px 45px;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.spice-experience>div:last-child {
+    border-right: none;
+}
+
+.spice-experience span {
+    color: var(--spice-gold);
+    font-size: 11px;
+}
+
+.spice-experience h3 {
+    margin: 25px 0 15px;
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.spice-experience p {
+    color: var(--spice-muted);
+    line-height: 1.8;
+}
+
+.spice-reservation {
+    padding: 110px 24px;
+    background: var(--spice-rust);
+    text-align: center;
+}
+
+.spice-reservation .spice-eyebrow {
+    color: #f3d4bc;
+}
+
+.spice-reservation>p:not(.spice-eyebrow) {
+    max-width: 620px;
+    margin: 20px auto 35px;
+    line-height: 1.8;
+}
+
+.spice-reservation button {
+    padding: 16px 28px;
+    border: 0;
+    background: var(--spice-cream);
+    color: var(--spice-dark);
+    cursor: pointer;
+    font: inherit;
+}
+
+.spice-reservation small {
+    margin-top: 18px;
+    display: block;
+    opacity: 0.7;
+}
+
+.spice-visit {
+    max-width: 1250px;
+    margin: auto;
+    padding: 110px 6%;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+}
+
+.spice-visit-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+}
+
+.spice-visit-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.spice-visit-details span {
+    color: var(--spice-muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.spice-footer {
+    padding: 45px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: #0d0b09;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spice-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.spice-footer-brand strong {
+    color: var(--spice-gold);
+    letter-spacing: 4px;
+}
+
+.spice-footer-brand span,
+.spice-footer p {
+    color: var(--spice-muted);
+    font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    .spice-header nav a:not(.spice-reserve-nav) {
+        display: none;
+    }
+
+    .spice-menu-grid,
+    .spice-feature,
+    .spice-visit {
+        grid-template-columns: 1fr;
+    }
+
+    .spice-feature-image {
+        min-height: 500px;
+    }
+
+    .spice-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .spice-experience {
+        grid-template-columns: 1fr;
+    }
+
+    .spice-experience>div {
+        padding: 40px 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+}
+
+@media (max-width: 600px) {
+    .spice-demo-bar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .spice-header {
+        height: 80px;
+    }
+
+    .spice-reserve-nav {
+        display: none;
+    }
+
+    .spice-hero {
+        min-height: 650px;
+    }
+
+    .spice-hero-overlay {
+        background: rgba(13, 10, 8, 0.72);
+    }
+
+    .spice-hero h1 {
+        font-size: 54px;
+    }
+
+    .spice-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .spice-scroll {
+        display: none;
+    }
+
+    .spice-intro,
+    .spice-menu,
+    .spice-reservation,
+    .spice-visit {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .spice-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .spice-feature-image {
+        min-height: 380px;
+    }
+
+    .spice-feature-content {
+        padding: 70px 25px;
+    }
+
+    .spice-experience {
+        padding: 60px 25px;
+    }
+
+    .spice-visit-details {
+        grid-template-columns: 1fr;
+    }
+
+    .spice-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
