@@ -273,9 +273,12 @@ function Home() {
                                         {t('home.portfolio.beauty.description')}
                                     </p>
 
-                                    <span className="portfolio-coming-soon">
-                                        {t('home.portfolio.demoComingSoon')}
-                                    </span>
+                                    <Link
+                                        to="/portfolio/nordic-beauty-studio"
+                                        className="portfolio-project-link"
+                                    >
+                                        {t('home.portfolio.viewDemo')}
+                                    </Link>
                                 </div>
                             </article>
 
@@ -286,8 +289,8 @@ function Home() {
                                         alt="Spice House restaurant website concept"
                                     />
 
-                                    <span className="portfolio-image-badge portfolio-coming-badge">
-                                        {t('home.portfolio.comingSoon')}
+                                    <span className="portfolio-image-badge">
+                                        {t('home.portfolio.liveDemo')}
                                     </span>
                                 </div>
 
@@ -304,9 +307,12 @@ function Home() {
                                         {t('home.portfolio.spiceHouse.description')}
                                     </p>
 
-                                    <span className="portfolio-coming-soon">
-                                        {t('home.portfolio.demoComingSoon')}
-                                    </span>
+                                    <Link
+                                        to="/portfolio/spice-house"
+                                        className="portfolio-project-link"
+                                    >
+                                        {t('home.portfolio.viewDemo')}
+                                    </Link>
                                 </div>
                             </article>
                         </div>
