@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from '@formspree/react';
+import { useTranslation } from 'react-i18next';
 
 import '../styles/contact.css';
 
@@ -20,6 +21,7 @@ type FormErrors = {
 };
 
 function Contact() {
+    const { t, i18n } = useTranslation();
     const [state, formspreeSubmit] = useForm('myeypadw');
 
     const [formData, setFormData] = useState<FormData>({
@@ -58,29 +60,27 @@ function Contact() {
         const newErrors: FormErrors = {};
 
         if (!formData.name.trim()) {
-            newErrors.name = 'Please enter your name.';
+            newErrors.name = t('contactPage.validation.name');
         }
 
         if (!formData.email.trim()) {
-            newErrors.email = 'Please enter your email.';
+            newErrors.email = t('contactPage.validation.emailRequired');
         } else {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (!emailPattern.test(formData.email)) {
-                newErrors.email = 'Please enter a valid email address.';
+                newErrors.email = t('contactPage.validation.emailInvalid');
             }
         }
 
         if (!formData.service) {
-            newErrors.service = 'Please select a service.';
+            newErrors.service = t('contactPage.validation.service');
         }
 
         if (!formData.message.trim()) {
-            newErrors.message =
-                'Please tell me a little about your project.';
+            newErrors.message = t('contactPage.validation.messageRequired');
         } else if (formData.message.trim().length < 20) {
-            newErrors.message =
-                'Please provide a little more information.';
+            newErrors.message = t('contactPage.validation.messageShort');
         }
 
         return newErrors;
@@ -119,54 +119,88 @@ function Contact() {
     return (
         <>
             <Helmet>
-                <title>Contact | Mayuri Web Studio</title>
+                <title>{t('seo.contact.title')}</title>
 
                 <meta
                     name="description"
-                    content="Contact Mayuri Web Studio to discuss a new website, website redesign or ongoing website support."
+                    content={t('seo.contact.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/contact"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.contact.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.contact.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/contact"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
             <main>
+                {/* HERO */}
                 <section className="contact-hero">
                     <div className="contact-hero-container">
                         <p className="section-label">
-                            Contact
+                            {t('contactPage.hero.label')}
                         </p>
 
                         <h1>
-                            Let’s Talk About Your Website
+                            {t('contactPage.hero.title')}
                         </h1>
 
                         <p>
-                            Tell me about your business and what you need.
-                            I’ll help you understand the best next step
-                            for your website.
+                            {t('contactPage.hero.description')}
                         </p>
                     </div>
                 </section>
 
                 <section className="contact-section">
                     <div className="section-container contact-container">
+                        {/* CONTACT INFORMATION */}
                         <div className="contact-info">
                             <p className="section-label">
-                                Get in Touch
+                                {t('contactPage.info.label')}
                             </p>
 
                             <h2>
-                                Start with a Simple Conversation
+                                {t('contactPage.info.title')}
                             </h2>
 
                             <p>
-                                You don’t need to have everything planned
-                                before contacting me. Just tell me a little
-                                about your business, what you need and what
-                                you would like your website to achieve.
+                                {t('contactPage.info.description')}
                             </p>
 
                             <div className="contact-details">
                                 <div className="contact-detail-card">
-                                    <span>Email</span>
+                                    <span>
+                                        {t('contactPage.info.email')}
+                                    </span>
 
                                     <a href="mailto:mayuri.vijaya@gmail.com">
                                         mayuri.vijaya@gmail.com
@@ -174,44 +208,54 @@ function Contact() {
                                 </div>
 
                                 <div className="contact-detail-card">
-                                    <span>Location</span>
+                                    <span>
+                                        {t('contactPage.info.location')}
+                                    </span>
 
                                     <strong>
-                                        Stockholm, Sweden
+                                        {t('contactPage.info.locationValue')}
                                     </strong>
                                 </div>
 
                                 <div className="contact-detail-card">
-                                    <span>Response Time</span>
+                                    <span>
+                                        {t('contactPage.info.responseTime')}
+                                    </span>
 
                                     <strong>
-                                        Usually within 1–2 business days
+                                        {t(
+                                            'contactPage.info.responseTimeValue'
+                                        )}
                                     </strong>
                                 </div>
 
                                 <div className="contact-detail-card">
-                                    <span>Consultation</span>
+                                    <span>
+                                        {t('contactPage.info.consultation')}
+                                    </span>
 
                                     <strong>
-                                        Free initial conversation
+                                        {t(
+                                            'contactPage.info.consultationValue'
+                                        )}
                                     </strong>
                                 </div>
                             </div>
                         </div>
 
+                        {/* CONTACT FORM */}
                         <div className="contact-form-wrapper">
                             <div className="contact-form-heading">
                                 <span>
-                                    Project Enquiry
+                                    {t('contactPage.form.label')}
                                 </span>
 
                                 <h2>
-                                    Tell Me About Your Project
+                                    {t('contactPage.form.title')}
                                 </h2>
 
                                 <p>
-                                    Fill in the form and I’ll get back to you
-                                    to discuss your requirements.
+                                    {t('contactPage.form.description')}
                                 </p>
                             </div>
 
@@ -220,9 +264,10 @@ function Contact() {
                                 onSubmit={handleSubmit}
                                 noValidate
                             >
+                                {/* NAME */}
                                 <div className="form-group">
                                     <label htmlFor="name">
-                                        Name *
+                                        {t('contactPage.form.name')} *
                                     </label>
 
                                     <input
@@ -231,7 +276,9 @@ function Contact() {
                                         type="text"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        placeholder="Your name"
+                                        placeholder={t(
+                                            'contactPage.form.namePlaceholder'
+                                        )}
                                         autoComplete="name"
                                         className={
                                             errors.name
@@ -247,9 +294,10 @@ function Contact() {
                                     )}
                                 </div>
 
+                                {/* EMAIL */}
                                 <div className="form-group">
                                     <label htmlFor="email">
-                                        Email *
+                                        {t('contactPage.form.email')} *
                                     </label>
 
                                     <input
@@ -274,9 +322,10 @@ function Contact() {
                                     )}
                                 </div>
 
+                                {/* BUSINESS */}
                                 <div className="form-group">
                                     <label htmlFor="business">
-                                        Business Name
+                                        {t('contactPage.form.business')}
                                     </label>
 
                                     <input
@@ -285,14 +334,17 @@ function Contact() {
                                         type="text"
                                         value={formData.business}
                                         onChange={handleChange}
-                                        placeholder="Your business name"
+                                        placeholder={t(
+                                            'contactPage.form.businessPlaceholder'
+                                        )}
                                         autoComplete="organization"
                                     />
                                 </div>
 
+                                {/* SERVICE */}
                                 <div className="form-group">
                                     <label htmlFor="service">
-                                        What do you need? *
+                                        {t('contactPage.form.service')} *
                                     </label>
 
                                     <select
@@ -307,27 +359,39 @@ function Contact() {
                                         }
                                     >
                                         <option value="" disabled>
-                                            Select a service
+                                            {t(
+                                                'contactPage.form.selectService'
+                                            )}
                                         </option>
 
                                         <option value="starter">
-                                            Starter Website
+                                            {t(
+                                                'contactPage.form.services.starter'
+                                            )}
                                         </option>
 
                                         <option value="business">
-                                            Business Website
+                                            {t(
+                                                'contactPage.form.services.business'
+                                            )}
                                         </option>
 
                                         <option value="redesign">
-                                            Website Redesign
+                                            {t(
+                                                'contactPage.form.services.redesign'
+                                            )}
                                         </option>
 
                                         <option value="maintenance">
-                                            Maintenance & Support
+                                            {t(
+                                                'contactPage.form.services.maintenance'
+                                            )}
                                         </option>
 
                                         <option value="other">
-                                            Something Else
+                                            {t(
+                                                'contactPage.form.services.other'
+                                            )}
                                         </option>
                                     </select>
 
@@ -338,9 +402,10 @@ function Contact() {
                                     )}
                                 </div>
 
+                                {/* MESSAGE */}
                                 <div className="form-group">
                                     <label htmlFor="message">
-                                        Tell me about your project *
+                                        {t('contactPage.form.message')} *
                                     </label>
 
                                     <textarea
@@ -349,7 +414,9 @@ function Contact() {
                                         rows={6}
                                         value={formData.message}
                                         onChange={handleChange}
-                                        placeholder="Tell me a little about your business, what kind of website you need and what you would like it to achieve..."
+                                        placeholder={t(
+                                            'contactPage.form.messagePlaceholder'
+                                        )}
                                         className={
                                             errors.message
                                                 ? 'input-error'
@@ -364,34 +431,32 @@ function Contact() {
                                     )}
                                 </div>
 
+                                {/* SUBMIT */}
                                 <button
                                     type="submit"
                                     className="contact-submit-btn"
                                     disabled={state.submitting}
                                 >
                                     {state.submitting
-                                        ? 'Sending...'
-                                        : 'Send Message'}
+                                        ? t('contactPage.form.sending')
+                                        : t('contactPage.form.send')}
                                 </button>
 
                                 <p className="form-note">
-                                    No obligation. Your details are only
-                                    used to respond to your enquiry.
+                                    {t('contactPage.form.note')}
                                 </p>
 
+                                {/* SUCCESS */}
                                 {showSuccess && (
                                     <div className="success-message">
-                                        Thank you! Your message has been
-                                        sent successfully. I’ll get back
-                                        to you as soon as possible.
+                                        {t('contactPage.form.success')}
                                     </div>
                                 )}
 
+                                {/* FORMSPREE ERROR */}
                                 {state.errors && (
                                     <div className="form-error-message">
-                                        Sorry, something went wrong while
-                                        sending your message. Please try
-                                        again.
+                                        {t('contactPage.form.error')}
                                     </div>
                                 )}
                             </form>

@@ -1,55 +1,101 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import '../styles/footer.css';
 
 function Footer() {
+    const { t } = useTranslation();
+
     return (
         <footer className="footer">
             <div className="footer-container">
+
+                {/* Brand */}
                 <div className="footer-brand">
                     <h3>Mayuri Web Studio</h3>
 
                     <p>
-                        Modern websites for small businesses in Sweden.
-                        Simple, professional and built to support business growth.
+                        {t('footer.description')}
                     </p>
                 </div>
 
+                {/* Quick Links */}
                 <div className="footer-column">
-                    <h4>Quick Links</h4>
+                    <h4>{t('footer.quickLinks')}</h4>
 
-                    <Link to="/">Home</Link>
-                    <Link to="/services">Services</Link>
-                    <Link to="/portfolio">Portfolio</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/">
+                        {t('footer.home')}
+                    </Link>
+
+                    <Link to="/services">
+                        {t('footer.services')}
+                    </Link>
+
+                    <Link to="/portfolio">
+                        {t('footer.portfolio')}
+                    </Link>
+
+                    <Link to="/about">
+                        {t('footer.about')}
+                    </Link>
+
+                    <Link to="/contact">
+                        {t('footer.contact')}
+                    </Link>
                 </div>
 
+                {/* Services */}
                 <div className="footer-column">
-                    <h4>Services</h4>
+                    <h4>{t('footer.servicesTitle')}</h4>
 
-                    <Link to="/services">Website Development</Link>
-                    <Link to="/services">Website Redesign</Link>
-                    <Link to="/services">Maintenance & Support</Link>
-                    <Link to="/services">SEO Basics</Link>
+                    <Link to="/services">
+                        {t('footer.websiteDevelopment')}
+                    </Link>
+
+                    <Link to="/services">
+                        {t('footer.websiteRedesign')}
+                    </Link>
+
+                    <Link to="/services">
+                        {t('footer.maintenanceSupport')}
+                    </Link>
+
+                    <Link to="/services">
+                        {t('footer.seoBasics')}
+                    </Link>
                 </div>
 
+                {/* Contact */}
                 <div className="footer-column">
-                    <h4>Contact</h4>
+                    <h4>{t('footer.contact')}</h4>
 
-                    <p>Stockholm, Sweden</p>
+                    <p>{t('footer.location')}</p>
+
                     <a href="mailto:hello@mayuriwebstudio.se">
                         hello@mayuriwebstudio.se
                     </a>
                 </div>
+
             </div>
 
             <div className="footer-bottom">
-                <p>© 2026 Mayuri Web Studio. All rights reserved.</p>
+                <p>
+                    © {new Date().getFullYear()} Mayuri Web Studio.{' '}
+                    {t('footer.rights')}
+                </p>
 
                 <div className="footer-bottom-links">
-                    <Link to="/privacy">Privacy Policy</Link>
-                    <Link to="/terms">Terms</Link>
-                    <Link to="/cookies">Cookies</Link>
+                    <Link to="/privacy">
+                        {t('footer.privacy')}
+                    </Link>
+
+                    <Link to="/terms">
+                        {t('footer.terms')}
+                    </Link>
+
+                    <Link to="/cookies">
+                        {t('footer.cookies')}
+                    </Link>
                 </div>
             </div>
         </footer>

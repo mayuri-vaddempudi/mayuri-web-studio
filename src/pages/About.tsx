@@ -1,17 +1,55 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import '../styles/about.css';
 
 function About() {
+    const { t, i18n } = useTranslation();
+
     return (
         <>
             <Helmet>
-                <title>About | Mayuri Web Studio</title>
+                <title>{t('seo.about.title')}</title>
 
                 <meta
                     name="description"
-                    content="Learn more about Mayuri Web Studio, a Sweden-based web studio creating modern, responsive websites for small businesses."
+                    content={t('seo.about.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/about"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.about.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.about.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/about"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
@@ -21,18 +59,19 @@ function About() {
                     <div className="about-hero-container">
                         <div className="about-hero-content">
                             <p className="section-label">
-                                About Mayuri Web Studio
+                                {t('aboutPage.hero.label')}
                             </p>
 
                             <h1>
-                                Websites Built with
-                                <span> Your Business in Mind</span>
+                                {t('aboutPage.hero.title1')}
+                                <span>
+                                    {' '}
+                                    {t('aboutPage.hero.title2')}
+                                </span>
                             </h1>
 
                             <p>
-                                I help small businesses in Sweden build a clear,
-                                professional and trustworthy online presence
-                                through modern, responsive websites.
+                                {t('aboutPage.hero.description')}
                             </p>
 
                             <div className="about-hero-actions">
@@ -40,18 +79,19 @@ function About() {
                                     to="/contact"
                                     className="about-primary-btn"
                                 >
-                                    Let's Work Together
+                                    {t('aboutPage.hero.primaryButton')}
                                 </Link>
 
                                 <Link
                                     to="/portfolio"
                                     className="about-secondary-btn"
                                 >
-                                    View My Work
+                                    {t('aboutPage.hero.secondaryButton')}
                                 </Link>
                             </div>
                         </div>
 
+                        {/* PROFILE CARD */}
                         <div className="about-hero-visual">
                             <div className="about-profile-card">
                                 <div className="about-avatar">
@@ -61,29 +101,51 @@ function About() {
                                 <h2>Mayuri</h2>
 
                                 <p className="profile-role">
-                                    Frontend Developer & Web Designer
+                                    {t('aboutPage.profile.role')}
                                 </p>
 
                                 <div className="profile-divider" />
 
                                 <div className="profile-detail">
-                                    <span>Based in</span>
-                                    <strong>Sweden</strong>
+                                    <span>
+                                        {t('aboutPage.profile.basedIn')}
+                                    </span>
+
+                                    <strong>
+                                        {t('aboutPage.profile.country')}
+                                    </strong>
                                 </div>
 
                                 <div className="profile-detail">
-                                    <span>Experience</span>
-                                    <strong>Frontend Development</strong>
+                                    <span>
+                                        {t('aboutPage.profile.experience')}
+                                    </span>
+
+                                    <strong>
+                                        {t(
+                                            'aboutPage.profile.experienceValue'
+                                        )}
+                                    </strong>
                                 </div>
 
                                 <div className="profile-detail">
-                                    <span>Focus</span>
-                                    <strong>Small Businesses</strong>
+                                    <span>
+                                        {t('aboutPage.profile.focus')}
+                                    </span>
+
+                                    <strong>
+                                        {t('aboutPage.profile.focusValue')}
+                                    </strong>
                                 </div>
 
                                 <div className="profile-detail">
-                                    <span>Approach</span>
-                                    <strong>Simple & Practical</strong>
+                                    <span>
+                                        {t('aboutPage.profile.approach')}
+                                    </span>
+
+                                    <strong>
+                                        {t('aboutPage.profile.approachValue')}
+                                    </strong>
                                 </div>
                             </div>
                         </div>
@@ -95,37 +157,29 @@ function About() {
                     <div className="section-container about-story-container">
                         <div className="story-heading">
                             <p className="section-label">
-                                My Story
+                                {t('aboutPage.story.label')}
                             </p>
 
                             <h2>
-                                Technology Made Simple for Small Businesses
+                                {t('aboutPage.story.title')}
                             </h2>
                         </div>
 
                         <div className="story-content">
                             <p>
-                                I'm a frontend developer with professional
-                                experience building modern web applications
-                                using Angular, React, TypeScript, HTML and CSS.
+                                {t('aboutPage.story.paragraph1')}
                             </p>
 
                             <p>
-                                Through my development experience, I've seen how
-                                important a clear and reliable website can be
-                                for a business.
+                                {t('aboutPage.story.paragraph2')}
                             </p>
 
                             <p>
-                                I started Mayuri Web Studio to help small
-                                businesses get professional websites without
-                                unnecessary technical complexity.
+                                {t('aboutPage.story.paragraph3')}
                             </p>
 
                             <p>
-                                My goal is simple: understand your business,
-                                identify what your customers need and create a
-                                website that supports your business goals.
+                                {t('aboutPage.story.paragraph4')}
                             </p>
                         </div>
                     </div>
@@ -136,71 +190,90 @@ function About() {
                     <div className="section-container">
                         <div className="section-heading">
                             <p className="section-label">
-                                My Approach
+                                {t('aboutPage.values.label')}
                             </p>
 
                             <h2>
-                                What Matters When Building Your Website
+                                {t('aboutPage.values.title')}
                             </h2>
 
                             <p>
-                                A good website should be easy to understand,
-                                easy to use and built around what your customers
-                                actually need.
+                                {t('aboutPage.values.description')}
                             </p>
                         </div>
 
                         <div className="values-grid">
+                            {/* CLEAR */}
                             <article className="value-card">
                                 <div className="value-number">
                                     01
                                 </div>
 
-                                <h3>Clear</h3>
+                                <h3>
+                                    {t('aboutPage.values.clear.title')}
+                                </h3>
 
                                 <p>
-                                    Visitors should quickly understand what your
-                                    business offers and how to contact you.
+                                    {t(
+                                        'aboutPage.values.clear.description'
+                                    )}
                                 </p>
                             </article>
 
+                            {/* PROFESSIONAL */}
                             <article className="value-card">
                                 <div className="value-number">
                                     02
                                 </div>
 
-                                <h3>Professional</h3>
+                                <h3>
+                                    {t(
+                                        'aboutPage.values.professional.title'
+                                    )}
+                                </h3>
 
                                 <p>
-                                    Modern design that helps your business make
-                                    a trustworthy first impression.
+                                    {t(
+                                        'aboutPage.values.professional.description'
+                                    )}
                                 </p>
                             </article>
 
+                            {/* RESPONSIVE */}
                             <article className="value-card">
                                 <div className="value-number">
                                     03
                                 </div>
 
-                                <h3>Responsive</h3>
+                                <h3>
+                                    {t(
+                                        'aboutPage.values.responsive.title'
+                                    )}
+                                </h3>
 
                                 <p>
-                                    Your website should work smoothly on mobile,
-                                    tablet and desktop devices.
+                                    {t(
+                                        'aboutPage.values.responsive.description'
+                                    )}
                                 </p>
                             </article>
 
+                            {/* PRACTICAL */}
                             <article className="value-card">
                                 <div className="value-number">
                                     04
                                 </div>
 
-                                <h3>Practical</h3>
+                                <h3>
+                                    {t(
+                                        'aboutPage.values.practical.title'
+                                    )}
+                                </h3>
 
                                 <p>
-                                    Features and technology should support your
-                                    business instead of making things more
-                                    complicated.
+                                    {t(
+                                        'aboutPage.values.practical.description'
+                                    )}
                                 </p>
                             </article>
                         </div>
@@ -212,49 +285,77 @@ function About() {
                     <div className="section-container technology-container">
                         <div className="technology-copy">
                             <p className="section-label">
-                                Technology
+                                {t('aboutPage.technology.label')}
                             </p>
 
                             <h2>
-                                Modern Web Development
+                                {t('aboutPage.technology.title')}
                             </h2>
 
                             <p className="technology-description">
-                                I use modern frontend technologies to create
-                                fast, maintainable and responsive websites that
-                                can grow with your business.
+                                {t('aboutPage.technology.description')}
                             </p>
                         </div>
 
                         <div className="technology-list">
                             <div className="technology-item">
                                 <span>HTML</span>
-                                <small>Structure</small>
+
+                                <small>
+                                    {t(
+                                        'aboutPage.technology.structure'
+                                    )}
+                                </small>
                             </div>
 
                             <div className="technology-item">
                                 <span>CSS</span>
-                                <small>Responsive Design</small>
+
+                                <small>
+                                    {t(
+                                        'aboutPage.technology.responsiveDesign'
+                                    )}
+                                </small>
                             </div>
 
                             <div className="technology-item">
                                 <span>React</span>
-                                <small>Frontend Development</small>
+
+                                <small>
+                                    {t(
+                                        'aboutPage.technology.frontendDevelopment'
+                                    )}
+                                </small>
                             </div>
 
                             <div className="technology-item">
                                 <span>TypeScript</span>
-                                <small>Reliable Development</small>
+
+                                <small>
+                                    {t(
+                                        'aboutPage.technology.reliableDevelopment'
+                                    )}
+                                </small>
                             </div>
 
                             <div className="technology-item">
                                 <span>Angular</span>
-                                <small>Web Applications</small>
+
+                                <small>
+                                    {t(
+                                        'aboutPage.technology.webApplications'
+                                    )}
+                                </small>
                             </div>
 
                             <div className="technology-item">
                                 <span>Git</span>
-                                <small>Version Control</small>
+
+                                <small>
+                                    {t(
+                                        'aboutPage.technology.versionControl'
+                                    )}
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -265,17 +366,15 @@ function About() {
                     <div className="section-container about-cta-container">
                         <div>
                             <p className="section-label">
-                                Let's Work Together
+                                {t('aboutPage.cta.label')}
                             </p>
 
                             <h2>
-                                Have an Idea for Your Business Website?
+                                {t('aboutPage.cta.title')}
                             </h2>
 
                             <p>
-                                Tell me about your business and what you need.
-                                We can discuss a simple and practical approach
-                                for getting your website online.
+                                {t('aboutPage.cta.description')}
                             </p>
                         </div>
 
@@ -283,7 +382,7 @@ function About() {
                             to="/contact"
                             className="about-cta-btn"
                         >
-                            Get a Free Consultation
+                            {t('aboutPage.cta.button')}
                         </Link>
                     </div>
                 </section>

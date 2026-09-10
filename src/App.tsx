@@ -1,4 +1,11 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,9 +23,17 @@ import FreshCleanStockholm from './pages/FreshCleanStockholm';
 
 function AppContent() {
   const location = useLocation();
+  const { i18n } = useTranslation();
 
   const isFreshCleanDemo =
     location.pathname === '/portfolio/fresh-clean-stockholm';
+
+  // Update the HTML language attribute when the user
+  // switches between English and Swedish.
+  useEffect(() => {
+    document.documentElement.lang =
+      i18n.language.startsWith('sv') ? 'sv' : 'en';
+  }, [i18n.language]);
 
   return (
     <>
@@ -32,7 +47,6 @@ function AppContent() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />

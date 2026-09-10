@@ -1,194 +1,249 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import '../styles/legal.css';
 
 function Cookies() {
+    const { t, i18n } = useTranslation();
+
     return (
         <>
             <Helmet>
-                <title>Cookie Policy | Mayuri Web Studio</title>
+                <title>{t('seo.cookies.title')}</title>
 
                 <meta
                     name="description"
-                    content="Cookie Policy for Mayuri Web Studio explaining how cookies and similar technologies may be used on this website."
+                    content={t('seo.cookies.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/cookies"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.cookies.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.cookies.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/cookies"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
             <main className="legal-page">
+                {/* HERO */}
                 <section className="legal-hero">
                     <div className="legal-container">
-                        <p className="section-label">Legal</p>
+                        <p className="section-label">
+                            {t('cookiesPage.hero.label')}
+                        </p>
 
-                        <h1>Cookie Policy</h1>
+                        <h1>
+                            {t('cookiesPage.hero.title')}
+                        </h1>
 
                         <p>
-                            This Cookie Policy explains how cookies and similar
-                            technologies may be used on the Mayuri Web Studio
-                            website.
+                            {t('cookiesPage.hero.description')}
                         </p>
                     </div>
                 </section>
 
+                {/* CONTENT */}
                 <section className="legal-content-section">
                     <div className="legal-container legal-content">
                         <div className="legal-updated">
-                            Last updated: September 2026
+                            {t('cookiesPage.lastUpdated')}
                         </div>
 
+                        {/* 1 */}
                         <section>
-                            <h2>1. What Are Cookies?</h2>
+                            <h2>
+                                {t('cookiesPage.whatAreCookies.title')}
+                            </h2>
 
                             <p>
-                                Cookies are small text files that can be stored
-                                on your device when you visit a website.
+                                {t(
+                                    'cookiesPage.whatAreCookies.description1'
+                                )}
                             </p>
 
                             <p>
-                                They can be used for purposes such as remembering
-                                preferences, supporting website functionality
-                                and understanding how a website is used.
+                                {t(
+                                    'cookiesPage.whatAreCookies.description2'
+                                )}
                             </p>
                         </section>
 
+                        {/* 2 */}
                         <section>
-                            <h2>2. Cookies Used on This Website</h2>
+                            <h2>
+                                {t('cookiesPage.used.title')}
+                            </h2>
 
                             <p>
-                                Mayuri Web Studio aims to keep the website simple
-                                and use only the technologies necessary to
-                                operate it.
+                                {t('cookiesPage.used.description1')}
                             </p>
 
                             <p>
-                                The website may use essential technical storage
-                                or cookies required by the website, hosting
-                                platform or third-party services used to provide
-                                functionality.
+                                {t('cookiesPage.used.description2')}
                             </p>
                         </section>
 
+                        {/* 3 */}
                         <section>
-                            <h2>3. Essential Cookies</h2>
+                            <h2>
+                                {t('cookiesPage.essential.title')}
+                            </h2>
 
                             <p>
-                                Essential cookies or similar technologies are
-                                used when they are necessary for the website or
-                                a service to function correctly.
+                                {t('cookiesPage.essential.description1')}
                             </p>
 
                             <p>
-                                These technologies generally cannot be disabled
-                                without affecting the operation of the relevant
-                                feature or service.
+                                {t('cookiesPage.essential.description2')}
                             </p>
                         </section>
 
+                        {/* 4 */}
                         <section>
-                            <h2>4. Contact Form Services</h2>
+                            <h2>
+                                {t('cookiesPage.contactForm.title')}
+                            </h2>
 
                             <p>
-                                This website uses Formspree to process messages
-                                submitted through the contact form.
+                                {t(
+                                    'cookiesPage.contactForm.description1'
+                                )}
                             </p>
 
                             <p>
-                                Formspree may use technical information, cookies
-                                or similar technologies as part of providing its
-                                service and preventing abuse or spam.
+                                {t(
+                                    'cookiesPage.contactForm.description2'
+                                )}
                             </p>
                         </section>
 
+                        {/* 5 */}
                         <section>
-                            <h2>5. Hosting and Technical Services</h2>
+                            <h2>
+                                {t('cookiesPage.hosting.title')}
+                            </h2>
 
                             <p>
-                                The website may use hosting, security and
-                                performance services provided by third-party
-                                providers.
+                                {t('cookiesPage.hosting.description1')}
                             </p>
 
                             <p>
-                                These services may process technical information
-                                such as IP addresses, browser information,
-                                device information and request data where
-                                necessary to operate, secure or deliver the
-                                website.
+                                {t('cookiesPage.hosting.description2')}
                             </p>
                         </section>
 
+                        {/* 6 */}
                         <section>
-                            <h2>6. Analytics</h2>
+                            <h2>
+                                {t('cookiesPage.analytics.title')}
+                            </h2>
 
                             <p>
-                                At present, Mayuri Web Studio does not
-                                intentionally use advertising or behavioural
-                                tracking cookies on this website.
+                                {t('cookiesPage.analytics.description1')}
                             </p>
 
                             <p>
-                                If analytics or other non-essential tracking
-                                technologies are introduced in the future, this
-                                Cookie Policy will be updated and any required
-                                consent mechanism will be added.
+                                {t('cookiesPage.analytics.description2')}
                             </p>
                         </section>
 
+                        {/* 7 */}
                         <section>
-                            <h2>7. Managing Cookies</h2>
+                            <h2>
+                                {t('cookiesPage.managing.title')}
+                            </h2>
 
                             <p>
-                                Most browsers allow you to view, block or delete
-                                cookies through the browser settings.
+                                {t('cookiesPage.managing.description1')}
                             </p>
 
                             <p>
-                                Blocking essential cookies or technical storage
-                                may affect how some parts of a website or
-                                third-party service function.
+                                {t('cookiesPage.managing.description2')}
                             </p>
                         </section>
 
+                        {/* 8 */}
                         <section>
-                            <h2>8. Third-Party Services</h2>
+                            <h2>
+                                {t('cookiesPage.thirdParty.title')}
+                            </h2>
 
                             <p>
-                                Third-party providers used by this website may
-                                have their own cookie and privacy policies.
+                                {t(
+                                    'cookiesPage.thirdParty.description1'
+                                )}
                             </p>
 
                             <p>
-                                Their use of cookies or similar technologies is
-                                governed by their own policies and practices.
+                                {t(
+                                    'cookiesPage.thirdParty.description2'
+                                )}
                             </p>
                         </section>
 
+                        {/* 9 */}
                         <section>
-                            <h2>9. Changes to This Cookie Policy</h2>
+                            <h2>
+                                {t('cookiesPage.changes.title')}
+                            </h2>
 
                             <p>
-                                This Cookie Policy may be updated if the website
-                                begins using new services, analytics tools or
-                                other technologies.
+                                {t('cookiesPage.changes.description1')}
                             </p>
 
                             <p>
-                                The most recent version will be available on
-                                this page.
+                                {t('cookiesPage.changes.description2')}
                             </p>
                         </section>
 
+                        {/* 10 */}
                         <section>
-                            <h2>10. Contact</h2>
+                            <h2>
+                                {t('cookiesPage.contact.title')}
+                            </h2>
 
                             <p>
-                                If you have questions about this Cookie Policy,
-                                please contact:
+                                {t('cookiesPage.contact.description')}
                             </p>
 
                             <div className="legal-contact-card">
-                                <strong>Mayuri Web Studio</strong>
+                                <strong>
+                                    Mayuri Web Studio
+                                </strong>
 
-                                <span>Stockholm, Sweden</span>
+                                <span>
+                                    {t(
+                                        'cookiesPage.contact.location'
+                                    )}
+                                </span>
 
                                 <a href="mailto:mayuri.vijaya@gmail.com">
                                     mayuri.vijaya@gmail.com

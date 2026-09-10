@@ -1,16 +1,53 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import '../styles/services.css';
 
 function Services() {
+    const { t, i18n } = useTranslation();
     return (
         <>
             <Helmet>
-                <title>Web Design Services | Mayuri Web Studio</title>
+                <title>{t('seo.services.title')}</title>
 
                 <meta
                     name="description"
-                    content="Affordable website development, redesign and maintenance services for small businesses in Sweden."
+                    content={t('seo.services.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/services"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.services.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.services.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/services"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
@@ -19,14 +56,13 @@ function Services() {
                 <section className="services-hero">
                     <div className="services-hero-container">
                         <div>
-                            <p className="section-label">Our Services</p>
-
-                            <h1>Simple Website Solutions for Small Businesses</h1>
-
-                            <p>
-                                Professional, responsive websites designed to help your
-                                business build trust, reach customers and grow online.
+                            <p className="section-label">
+                                {t('servicesPage.hero.label')}
                             </p>
+
+                            <h1>{t('servicesPage.hero.title')}</h1>
+
+                            <p>{t('servicesPage.hero.description')}</p>
                         </div>
                     </div>
                 </section>
@@ -41,32 +77,25 @@ function Services() {
                                 <div className="service-row-icon">01</div>
 
                                 <div className="service-row-content">
-                                    <h2>Starter Website</h2>
+                                    <h2>{t('servicesPage.starter.title')}</h2>
 
-                                    <p>
-                                        A clean and professional one-page website for small
-                                        businesses that need a simple and effective online
-                                        presence.
-                                    </p>
+                                    <p>{t('servicesPage.starter.description')}</p>
 
                                     <ul>
-                                        <li>Professional one-page website</li>
-                                        <li>Mobile responsive design</li>
-                                        <li>Business introduction</li>
-                                        <li>Services section</li>
-                                        <li>Contact section and contact form</li>
-                                        <li>Basic SEO setup</li>
-                                        <li>Custom domain setup</li>
+                                        <li>{t('servicesPage.starter.point1')}</li>
+                                        <li>{t('servicesPage.starter.point2')}</li>
+                                        <li>{t('servicesPage.starter.point3')}</li>
+                                        <li>{t('servicesPage.starter.point4')}</li>
                                     </ul>
                                 </div>
 
                                 <div className="service-row-price">
-                                    <span>Starting from</span>
+                                    <span>{t('servicesPage.price.startingFrom')}</span>
 
                                     <strong>3,500 SEK</strong>
 
                                     <Link to="/contact" className="service-row-btn">
-                                        Get Started
+                                        {t('servicesPage.price.getStarted')}
                                     </Link>
                                 </div>
                             </article>
@@ -76,32 +105,28 @@ function Services() {
                                 <div className="service-row-icon">02</div>
 
                                 <div className="service-row-content">
-                                    <h2>Business Website</h2>
+                                    <h2>{t('servicesPage.business.title')}</h2>
 
-                                    <p>
-                                        A complete multi-page website for businesses that need
-                                        more space to present their company, services and contact
-                                        information professionally.
-                                    </p>
+                                    <p>{t('servicesPage.business.description')}</p>
 
                                     <ul>
-                                        <li>4–5 professionally designed pages</li>
-                                        <li>Home, About, Services and Contact pages</li>
-                                        <li>Mobile responsive design</li>
-                                        <li>Contact form</li>
-                                        <li>Google Maps integration</li>
-                                        <li>Basic SEO setup</li>
-                                        <li>Custom domain setup</li>
+                                        <li>{t('servicesPage.business.point1')}</li>
+                                        <li>{t('servicesPage.business.point2')}</li>
+                                        <li>{t('servicesPage.business.point3')}</li>
+                                        <li>{t('servicesPage.business.point4')}</li>
+                                        <li>{t('servicesPage.business.point5')}</li>
+                                        <li>{t('servicesPage.business.point6')}</li>
+                                        <li>{t('servicesPage.business.point7')}</li>
                                     </ul>
                                 </div>
 
                                 <div className="service-row-price">
-                                    <span>Starting from</span>
+                                    <span>{t('servicesPage.price.startingFrom')}</span>
 
                                     <strong>6,000 SEK</strong>
 
                                     <Link to="/contact" className="service-row-btn">
-                                        Get Started
+                                        {t('servicesPage.price.getStarted')}
                                     </Link>
                                 </div>
                             </article>
@@ -111,31 +136,27 @@ function Services() {
                                 <div className="service-row-icon">03</div>
 
                                 <div className="service-row-content">
-                                    <h2>Website Redesign</h2>
+                                    <h2>{t('servicesPage.redesign.title')}</h2>
 
-                                    <p>
-                                        Give your existing website a fresh and modern look while
-                                        improving usability, mobile responsiveness and the overall
-                                        customer experience.
-                                    </p>
+                                    <p>{t('servicesPage.redesign.description')}</p>
 
                                     <ul>
-                                        <li>Modern responsive layout</li>
-                                        <li>Improved user experience</li>
-                                        <li>Improved content structure</li>
-                                        <li>Performance improvements</li>
-                                        <li>Updated styling and visual design</li>
-                                        <li>Basic SEO review</li>
+                                        <li>{t('servicesPage.redesign.point1')}</li>
+                                        <li>{t('servicesPage.redesign.point2')}</li>
+                                        <li>{t('servicesPage.redesign.point3')}</li>
+                                        <li>{t('servicesPage.redesign.point4')}</li>
+                                        <li>{t('servicesPage.redesign.point5')}</li>
+                                        <li>{t('servicesPage.redesign.point6')}</li>
                                     </ul>
                                 </div>
 
                                 <div className="service-row-price">
-                                    <span>Starting from</span>
+                                    <span>{t('servicesPage.price.startingFrom')}</span>
 
                                     <strong>6,000 SEK</strong>
 
                                     <Link to="/contact" className="service-row-btn">
-                                        Get Started
+                                        {t('servicesPage.price.getStarted')}
                                     </Link>
                                 </div>
                             </article>
@@ -145,29 +166,28 @@ function Services() {
                                 <div className="service-row-icon">04</div>
 
                                 <div className="service-row-content">
-                                    <h2>Maintenance & Support</h2>
+                                    <h2>{t('servicesPage.maintenance.title')}</h2>
 
-                                    <p>
-                                        Optional ongoing support to keep your website updated,
-                                        working smoothly and looking professional after launch.
-                                    </p>
+                                    <p>{t('servicesPage.maintenance.description')}</p>
 
                                     <ul>
-                                        <li>Minor text and image updates</li>
-                                        <li>Basic technical support</li>
-                                        <li>Website health checks</li>
-                                        <li>Small fixes</li>
-                                        <li>General website assistance</li>
+                                        <li>{t('servicesPage.maintenance.point1')}</li>
+                                        <li>{t('servicesPage.maintenance.point2')}</li>
+                                        <li>{t('servicesPage.maintenance.point3')}</li>
+                                        <li>{t('servicesPage.maintenance.point4')}</li>
+                                        <li>{t('servicesPage.maintenance.point5')}</li>
                                     </ul>
                                 </div>
 
                                 <div className="service-row-price">
-                                    <span>Starting from</span>
+                                    <span>{t('servicesPage.price.startingFrom')}</span>
 
-                                    <strong>400 SEK/month</strong>
+                                    <strong>
+                                        400 SEK/{t('servicesPage.price.perMonth')}
+                                    </strong>
 
                                     <Link to="/contact" className="service-row-btn">
-                                        Get Started
+                                        {t('servicesPage.price.getStarted')}
                                     </Link>
                                 </div>
                             </article>
@@ -180,45 +200,44 @@ function Services() {
                 <section className="included-section">
                     <div className="section-container">
                         <div className="section-heading">
-                            <p className="section-label">Included</p>
-
-                            <h2>Every Website Includes the Essentials</h2>
-
-                            <p>
-                                Every website is built with the important foundations needed
-                                for a professional online presence.
+                            <p className="section-label">
+                                {t('servicesPage.included.label')}
                             </p>
+
+                            <h2>{t('servicesPage.included.title')}</h2>
+
+                            <p>{t('servicesPage.included.description')}</p>
                         </div>
 
                         <div className="included-grid">
                             <div className="included-item">
                                 <span>✓</span>
-                                <h3>Mobile Responsive</h3>
+                                <h3>{t('servicesPage.included.responsive')}</h3>
                             </div>
 
                             <div className="included-item">
                                 <span>✓</span>
-                                <h3>SEO Basics</h3>
+                                <h3>{t('servicesPage.included.seo')}</h3>
                             </div>
 
                             <div className="included-item">
                                 <span>✓</span>
-                                <h3>Fast Loading</h3>
+                                <h3>{t('servicesPage.included.loading')}</h3>
                             </div>
 
                             <div className="included-item">
                                 <span>✓</span>
-                                <h3>Contact Form</h3>
+                                <h3>{t('servicesPage.included.contactForm')}</h3>
                             </div>
 
                             <div className="included-item">
                                 <span>✓</span>
-                                <h3>Custom Domain Setup</h3>
+                                <h3>{t('servicesPage.included.domain')}</h3>
                             </div>
 
                             <div className="included-item">
                                 <span>✓</span>
-                                <h3>Basic Security Setup</h3>
+                                <h3>{t('servicesPage.included.security')}</h3>
                             </div>
                         </div>
                     </div>
@@ -228,18 +247,17 @@ function Services() {
                 <section className="services-cta">
                     <div className="section-container services-cta-container">
                         <div>
-                            <p className="section-label">Need Something Different?</p>
-
-                            <h2>Let’s Find the Right Solution for Your Business</h2>
-
-                            <p>
-                                Every business is different. Tell me what you need and I’ll
-                                recommend a practical website solution for your business.
+                            <p className="section-label">
+                                {t('servicesPage.cta.label')}
                             </p>
+
+                            <h2>{t('servicesPage.cta.title')}</h2>
+
+                            <p>{t('servicesPage.cta.description')}</p>
                         </div>
 
                         <Link to="/contact" className="final-cta-btn">
-                            Get a Free Consultation
+                            {t('servicesPage.cta.button')}
                         </Link>
                     </div>
                 </section>

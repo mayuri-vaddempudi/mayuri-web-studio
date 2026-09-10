@@ -1,18 +1,33 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import '../styles/header.css';
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const { t, i18n } = useTranslation();
+
     const closeMenu = () => {
         setMenuOpen(false);
+    };
+
+    const changeLanguage = (language: 'en' | 'sv') => {
+        i18n.changeLanguage(language);
+        localStorage.setItem('language', language);
+        closeMenu();
     };
 
     return (
         <header className="header">
             <div className="header-container">
-                <NavLink to="/" className="brand" onClick={closeMenu}>
+
+                <NavLink
+                    to="/"
+                    className="brand"
+                    onClick={closeMenu}
+                >
                     <img
                         src="/favicon.png"
                         alt="Mayuri Web Studio"
@@ -20,10 +35,12 @@ function Header() {
                     />
 
                     <div className="brand-text">
-                        <span className="brand-name">Mayuri Web Studio</span>
+                        <span className="brand-name">
+                            Mayuri Web Studio
+                        </span>
 
                         <span className="brand-tagline">
-                            Simple websites. Real growth.
+                            {t('header.tagline')}
                         </span>
                     </div>
                 </NavLink>
@@ -33,67 +50,151 @@ function Header() {
                     type="button"
                     aria-label="Toggle navigation menu"
                     aria-expanded={menuOpen}
-                    onClick={() => setMenuOpen((prev) => !prev)}
+                    onClick={() =>
+                        setMenuOpen((prev) => !prev)
+                    }
                 >
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
-                <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
+                <nav
+                    className={`nav ${menuOpen ? 'nav-open' : ''
+                        }`}
+                >
                     <NavLink
                         to="/"
                         end
                         onClick={closeMenu}
-                        className={({ isActive }) => (isActive ? 'active' : '')}
+                        className={({ isActive }) =>
+                            isActive ? 'active' : ''
+                        }
                     >
-                        Home
+                        {t('header.home')}
                     </NavLink>
 
                     <NavLink
                         to="/services"
                         onClick={closeMenu}
-                        className={({ isActive }) => (isActive ? 'active' : '')}
+                        className={({ isActive }) =>
+                            isActive ? 'active' : ''
+                        }
                     >
-                        Services
+                        {t('header.services')}
                     </NavLink>
 
                     <NavLink
                         to="/portfolio"
                         onClick={closeMenu}
-                        className={({ isActive }) => (isActive ? 'active' : '')}
+                        className={({ isActive }) =>
+                            isActive ? 'active' : ''
+                        }
                     >
-                        Portfolio
+                        {t('header.portfolio')}
                     </NavLink>
 
                     <NavLink
                         to="/about"
                         onClick={closeMenu}
-                        className={({ isActive }) => (isActive ? 'active' : '')}
+                        className={({ isActive }) =>
+                            isActive ? 'active' : ''
+                        }
                     >
-                        About
+                        {t('header.about')}
                     </NavLink>
 
                     <NavLink
                         to="/contact"
                         onClick={closeMenu}
-                        className={({ isActive }) => (isActive ? 'active' : '')}
+                        className={({ isActive }) =>
+                            isActive ? 'active' : ''
+                        }
                     >
-                        Contact
+                        {t('header.contact')}
                     </NavLink>
+
+                    <div className="mobile-language-switcher">
+                        <button
+                            type="button"
+                            className={
+                                i18n.language === 'en'
+                                    ? 'language-active'
+                                    : ''
+                            }
+                            onClick={() =>
+                                changeLanguage('en')
+                            }
+                        >
+                            EN
+                        </button>
+
+                        <span>|</span>
+
+                        <button
+                            type="button"
+                            className={
+                                i18n.language === 'sv'
+                                    ? 'language-active'
+                                    : ''
+                            }
+                            onClick={() =>
+                                changeLanguage('sv')
+                            }
+                        >
+                            SV
+                        </button>
+                    </div>
 
                     <NavLink
                         to="/contact"
                         onClick={closeMenu}
                         className="mobile-cta"
                     >
-                        Get a Free Consultation
+                        {t('header.consultation')}
                     </NavLink>
                 </nav>
 
-                <NavLink to="/contact" className="header-cta">
-                    Get a Free Consultation
-                </NavLink>
+                <div className="header-actions">
+                    <div className="language-switcher">
+                        <button
+                            type="button"
+                            className={
+                                i18n.language === 'en'
+                                    ? 'language-active'
+                                    : ''
+                            }
+                            onClick={() =>
+                                changeLanguage('en')
+                            }
+                        >
+                            EN
+                        </button>
+
+                        <span>|</span>
+
+                        <button
+                            type="button"
+                            className={
+                                i18n.language === 'sv'
+                                    ? 'language-active'
+                                    : ''
+                            }
+                            onClick={() =>
+                                changeLanguage('sv')
+                            }
+                        >
+                            SV
+                        </button>
+                    </div>
+
+                    <NavLink
+                        to="/contact"
+                        className="header-cta"
+                    >
+                        {t('header.consultation')}
+                    </NavLink>
+                </div>
             </div>
         </header>
     );

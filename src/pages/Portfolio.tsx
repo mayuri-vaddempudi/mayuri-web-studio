@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import '../styles/portfolio.css';
 
@@ -14,62 +15,57 @@ type Project = {
 };
 
 function Portfolio() {
+    const { t, i18n } = useTranslation();
     const [activeFilter, setActiveFilter] = useState('All');
 
     const projects: Project[] = [
         {
             title: 'Fresh & Clean Stockholm',
-            category: 'Cleaning Company',
+            category: t('portfolioPage.projects.freshClean.category'),
             filterCategory: 'Cleaning',
-            description:
-                'A clean and modern website concept focused on services, trust and making it easy for customers to request a quote.',
+            description: t('portfolioPage.projects.freshClean.description'),
             link: '/portfolio/fresh-clean-stockholm',
             image: '/images/fresh-clean.png',
         },
         {
             title: 'Nordic Beauty Studio',
-            category: 'Beauty Salon',
+            category: t('portfolioPage.projects.beauty.category'),
             filterCategory: 'Beauty',
-            description:
-                'An elegant beauty website concept focused on treatments, trust and helping customers find booking information quickly.',
+            description: t('portfolioPage.projects.beauty.description'),
             link: '#',
             image: '/images/nordic-beauty.png',
         },
         {
             title: 'Spice House',
-            category: 'Restaurant',
+            category: t('portfolioPage.projects.spiceHouse.category'),
             filterCategory: 'Restaurant',
-            description:
-                'A warm restaurant website concept designed around menu information, food presentation and reservations.',
+            description: t('portfolioPage.projects.spiceHouse.description'),
             link: '#',
             image: '/images/spice-house.png',
         },
         {
             title: 'Nordic Consulting',
-            category: 'Consulting',
+            category: t('portfolioPage.projects.consulting.category'),
             filterCategory: 'Business',
-            description:
-                'A professional business website concept for consultants and service-based companies that want a trustworthy online presence.',
+            description: t('portfolioPage.projects.consulting.description'),
             link: '#',
-            image: '/images/nordic-consulting.png'
+            image: '/images/nordic-consulting.png',
         },
         {
             title: 'Nordic Lens',
-            category: 'Photography',
+            category: t('portfolioPage.projects.lens.category'),
             filterCategory: 'Other',
-            description:
-                'A clean visual portfolio concept created to showcase photography work and help potential clients make contact.',
+            description: t('portfolioPage.projects.lens.description'),
             link: '#',
-            image: '/images/nordic-lens.png'
+            image: '/images/nordic-lens.png',
         },
         {
             title: 'Stockholm Corner',
-            category: 'Local Business',
+            category: t('portfolioPage.projects.stockholmCorner.category'),
             filterCategory: 'Business',
-            description:
-                'A simple local-business website concept with clear services, location information and easy ways for customers to get in touch.',
+            description: t('portfolioPage.projects.stockholmCorner.description'),
             link: '#',
-            image: '/images/stockholm-corner.png'
+            image: '/images/stockholm-corner.png',
         },
     ];
 
@@ -92,25 +88,62 @@ function Portfolio() {
     return (
         <>
             <Helmet>
-                <title>Website Portfolio | Mayuri Web Studio</title>
+                <title>{t('seo.portfolio.title')}</title>
 
                 <meta
                     name="description"
-                    content="Explore website concepts created by Mayuri Web Studio for restaurants, salons, cleaning companies, consultants and other small businesses."
+                    content={t('seo.portfolio.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/portfolio"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.portfolio.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.portfolio.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/portfolio"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
             <main>
                 <section className="portfolio-hero">
                     <div className="portfolio-hero-container">
-                        <p className="section-label">My Work</p>
+                        <p className="section-label">
+                            {t('portfolioPage.hero.label')}
+                        </p>
 
-                        <h1>Website Concepts for Small Businesses</h1>
+                        <h1>
+                            {t('portfolioPage.hero.title')}
+                        </h1>
 
                         <p>
-                            Explore demo website concepts created to show how
-                            different businesses can build a modern,
-                            professional and customer-friendly online presence.
+                            {t('portfolioPage.hero.description')}
                         </p>
                     </div>
                 </section>
@@ -122,12 +155,10 @@ function Portfolio() {
                                 <button
                                     key={filter}
                                     type="button"
-                                    className={
-                                        activeFilter === filter ? 'active' : ''
-                                    }
+                                    className={activeFilter === filter ? 'active' : ''}
                                     onClick={() => setActiveFilter(filter)}
                                 >
-                                    {filter}
+                                    {t(`portfolioPage.filters.${filter}`)}
                                 </button>
                             ))}
                         </div>
@@ -152,8 +183,8 @@ function Portfolio() {
                                                     }`}
                                             >
                                                 {project.link === '#'
-                                                    ? 'Coming Soon'
-                                                    : 'Live Demo'}
+                                                    ? t('portfolioPage.status.comingSoon')
+                                                    : t('portfolioPage.status.liveDemo')}
                                             </span>
                                         </div>
                                     ) : (
@@ -167,7 +198,7 @@ function Portfolio() {
                                             </h2>
 
                                             <p>
-                                                Website concept in development.
+                                                {t('portfolioPage.status.inDevelopment')}
                                             </p>
                                         </div>
                                     )}
@@ -187,14 +218,14 @@ function Portfolio() {
 
                                         {project.link === '#' ? (
                                             <span className="portfolio-coming-soon">
-                                                Demo Coming Soon
+                                                {t('portfolioPage.status.demoComingSoon')}
                                             </span>
                                         ) : (
                                             <Link
                                                 to={project.link}
                                                 className="portfolio-view-button"
                                             >
-                                                View Demo →
+                                                {t('portfolioPage.status.viewDemo')}
                                             </Link>
                                         )}
                                     </div>
@@ -209,17 +240,15 @@ function Portfolio() {
                         <div className="portfolio-bottom-card">
                             <div>
                                 <p className="section-label">
-                                    Have a Project in Mind?
+                                    {t('portfolioPage.cta.label')}
                                 </p>
 
                                 <h2>
-                                    Let’s Create a Website for Your Business
+                                    {t('portfolioPage.cta.title')}
                                 </h2>
 
                                 <p>
-                                    Tell me about your business and what you need.
-                                    I’ll help you plan a simple and practical
-                                    website that fits your goals.
+                                    {t('portfolioPage.cta.description')}
                                 </p>
                             </div>
 
@@ -227,7 +256,7 @@ function Portfolio() {
                                 to="/contact"
                                 className="portfolio-cta-button"
                             >
-                                Get a Free Consultation
+                                {t('portfolioPage.cta.button')}
                             </Link>
                         </div>
                     </div>

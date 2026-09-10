@@ -1,18 +1,53 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import '../styles/home.css';
 
 function Home() {
+    const { t, i18n } = useTranslation();
     return (
         <>
             <Helmet>
-                <title>
-                    Mayuri Web Studio | Websites for Small Businesses in Sweden
-                </title>
+                <title>{t('seo.home.title')}</title>
 
                 <meta
                     name="description"
-                    content="Mayuri Web Studio creates modern, responsive websites for small businesses in Sweden. Website development, redesign and maintenance services."
+                    content={t('seo.home.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.home.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.home.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
@@ -22,34 +57,32 @@ function Home() {
                     <div className="hero-container">
                         <div className="hero-content">
                             <p className="hero-label">
-                                Websites for small businesses in Sweden
+                                {t('home.hero.label')}
                             </p>
 
                             <h1>
-                                Professional Websites
-                                <span>That Help Your Business Grow</span>
+                                {t('home.hero.title1')}
+                                <span>{t('home.hero.title2')}</span>
                             </h1>
 
                             <p className="hero-description">
-                                Modern, mobile-friendly websites designed for local businesses
-                                that want a stronger online presence and more customer
-                                enquiries.
+                                {t('home.hero.description')}
                             </p>
 
                             <div className="hero-actions">
                                 <Link to="/contact" className="primary-btn">
-                                    Get a Free Consultation
+                                    {t('home.hero.consultation')}
                                 </Link>
 
                                 <Link to="/portfolio" className="secondary-btn">
-                                    View My Work
+                                    {t('home.hero.portfolio')}
                                 </Link>
                             </div>
 
                             <div className="hero-points">
-                                <span>✓ Mobile friendly</span>
-                                <span>✓ Fast loading</span>
-                                <span>✓ Clear pricing</span>
+                                <span>✓ {t('home.hero.mobileFriendly')}</span>
+                                <span>✓ {t('home.hero.fastLoading')}</span>
+                                <span>✓ {t('home.hero.clearPricing')}</span>
                             </div>
                         </div>
 
@@ -68,75 +101,96 @@ function Home() {
                 <section className="services-preview">
                     <div className="section-container">
                         <div className="section-heading">
-                            <p className="section-label">Services</p>
+                            <p className="section-label">
+                                {t('home.services.label')}
+                            </p>
 
                             <h2>
-                                Everything You Need for a Strong Online Presence
+                                {t('home.services.title')}
                             </h2>
 
                             <p>
-                                Simple, professional website solutions designed specifically
-                                for small businesses.
+                                {t('home.services.description')}
                             </p>
                         </div>
 
                         <div className="service-grid">
                             <article className="service-card">
-                                <div className="service-icon">⌘</div>
+                                <div className="service-icon">
+                                    01
+                                </div>
 
-                                <h3>Website Development</h3>
+                                <h3>
+                                    {t('home.services.development.title')}
+                                </h3>
 
                                 <p>
-                                    Modern, responsive websites built around your business
-                                    goals, services and customers.
+                                    {t('home.services.development.description')}
                                 </p>
 
-                                <Link to="/services">Learn more →</Link>
+                                <Link to="/services">
+                                    {t('home.services.development.link')} →
+                                </Link>
                             </article>
 
                             <article className="service-card">
-                                <div className="service-icon">↻</div>
+                                <div className="service-icon">
+                                    02
+                                </div>
 
-                                <h3>Website Redesign</h3>
+                                <h3>
+                                    {t('home.services.redesign.title')}
+                                </h3>
 
                                 <p>
-                                    Give an old or outdated website a cleaner, faster and more
-                                    professional experience.
+                                    {t('home.services.redesign.description')}
                                 </p>
 
-                                <Link to="/services">Learn more →</Link>
+                                <Link to="/services">
+                                    {t('home.services.redesign.link')} →
+                                </Link>
                             </article>
 
                             <article className="service-card">
-                                <div className="service-icon">⚙</div>
+                                <div className="service-icon">
+                                    03
+                                </div>
 
-                                <h3>Maintenance & Support</h3>
+                                <h3>
+                                    {t('home.services.maintenance.title')}
+                                </h3>
 
                                 <p>
-                                    Optional ongoing support for content updates, fixes and
-                                    website improvements after launch.
+                                    {t('home.services.maintenance.description')}
                                 </p>
 
-                                <Link to="/services">Learn more →</Link>
+                                <Link to="/services">
+                                    {t('home.services.maintenance.link')} →
+                                </Link>
                             </article>
 
                             <article className="service-card">
-                                <div className="service-icon">⌕</div>
+                                <div className="service-icon">
+                                    04
+                                </div>
 
-                                <h3>SEO Basics</h3>
+                                <h3>
+                                    {t('home.services.seo.title')}
+                                </h3>
 
                                 <p>
-                                    Essential search-engine setup to help your business website
-                                    become easier to discover online.
+                                    {t('home.services.seo.description')}
                                 </p>
 
-                                <Link to="/services">Learn more →</Link>
+                                <Link to="/services">
+                                    {t('home.services.seo.link')} →
+                                </Link>
                             </article>
                         </div>
 
                         <div className="services-action">
                             <Link to="/services" className="secondary-btn">
-                                View All Services
+                                {t('home.services.allServices')}
                             </Link>
                         </div>
                     </div>
@@ -146,112 +200,112 @@ function Home() {
                 <section className="portfolio-preview">
                     <div className="section-container">
                         <div className="section-heading">
-                            <p className="section-label">Portfolio</p>
+                            <p className="section-label">
+                                {t('home.portfolio.label')}
+                            </p>
 
-                            <h2>Recent Website Concepts</h2>
+                            <h2>
+                                {t('home.portfolio.title')}
+                            </h2>
 
                             <p>
-                                A few example websites designed for small businesses and
-                                local service companies.
+                                {t('home.portfolio.description')}
                             </p>
                         </div>
 
                         <div className="portfolio-grid">
-                            {/* CLEANING */}
                             <article className="portfolio-card">
                                 <div className="portfolio-project-image">
                                     <img
                                         src="/images/fresh-clean.png"
-                                        alt="Fresh & Clean Stockholm responsive cleaning website concept"
+                                        alt="Fresh & Clean Stockholm website concept"
                                     />
 
                                     <span className="portfolio-image-badge">
-                                        Live Demo
+                                        {t('home.portfolio.liveDemo')}
                                     </span>
                                 </div>
 
                                 <div className="portfolio-card-content">
                                     <span className="project-category">
-                                        Cleaning Business
+                                        {t('home.portfolio.freshClean.category')}
                                     </span>
 
-                                    <h3>Fresh & Clean Stockholm</h3>
+                                    <h3>
+                                        {t('home.portfolio.freshClean.title')}
+                                    </h3>
 
                                     <p>
-                                        A modern and responsive website concept for a Stockholm
-                                        cleaning company, designed to clearly present services and
-                                        encourage customers to request a quote.
+                                        {t('home.portfolio.freshClean.description')}
                                     </p>
 
                                     <Link
                                         to="/portfolio/fresh-clean-stockholm"
                                         className="portfolio-project-link"
                                     >
-                                        View Demo →
+                                        {t('home.portfolio.viewDemo')}
                                     </Link>
                                 </div>
                             </article>
 
-                            {/* BEAUTY */}
                             <article className="portfolio-card">
                                 <div className="portfolio-project-image">
                                     <img
                                         src="/images/nordic-beauty.png"
-                                        alt="Nordic Beauty Studio responsive beauty salon website concept"
+                                        alt="Nordic Beauty Studio website concept"
                                     />
 
                                     <span className="portfolio-image-badge portfolio-coming-badge">
-                                        Coming Soon
+                                        {t('home.portfolio.comingSoon')}
                                     </span>
                                 </div>
 
                                 <div className="portfolio-card-content">
                                     <span className="project-category">
-                                        Beauty & Wellness
+                                        {t('home.portfolio.beauty.category')}
                                     </span>
 
-                                    <h3>Nordic Beauty Studio</h3>
+                                    <h3>
+                                        {t('home.portfolio.beauty.title')}
+                                    </h3>
 
                                     <p>
-                                        An elegant and responsive website concept for a beauty studio,
-                                        designed to showcase treatments, build trust and encourage
-                                        appointment bookings.
+                                        {t('home.portfolio.beauty.description')}
                                     </p>
 
                                     <span className="portfolio-coming-soon">
-                                        Demo Coming Soon
+                                        {t('home.portfolio.demoComingSoon')}
                                     </span>
                                 </div>
                             </article>
 
-                            {/* RESTAURANT */}
                             <article className="portfolio-card">
                                 <div className="portfolio-project-image">
                                     <img
                                         src="/images/spice-house.png"
-                                        alt="Spice House responsive restaurant website concept"
+                                        alt="Spice House restaurant website concept"
                                     />
 
                                     <span className="portfolio-image-badge portfolio-coming-badge">
-                                        Coming Soon
+                                        {t('home.portfolio.comingSoon')}
                                     </span>
                                 </div>
 
                                 <div className="portfolio-card-content">
                                     <span className="project-category">
-                                        Restaurant
+                                        {t('home.portfolio.spiceHouse.category')}
                                     </span>
 
-                                    <h3>Spice House</h3>
+                                    <h3>
+                                        {t('home.portfolio.spiceHouse.title')}
+                                    </h3>
 
                                     <p>
-                                        A warm and modern restaurant website concept designed to
-                                        showcase dishes, present the menu and encourage customers
-                                        to make a reservation.
+                                        {t('home.portfolio.spiceHouse.description')}
                                     </p>
 
                                     <span className="portfolio-coming-soon">
-                                        Demo Coming Soon
+                                        {t('home.portfolio.demoComingSoon')}
                                     </span>
                                 </div>
                             </article>
@@ -259,7 +313,7 @@ function Home() {
 
                         <div className="portfolio-action">
                             <Link to="/portfolio" className="secondary-btn">
-                                View All Projects
+                                {t('home.portfolio.viewPortfolio')}
                             </Link>
                         </div>
                     </div>
@@ -269,58 +323,69 @@ function Home() {
                 <section className="process-section">
                     <div className="section-container">
                         <div className="section-heading">
-                            <p className="section-label">How It Works</p>
-
-                            <h2>A Simple Process From Idea to Launch</h2>
-
-                            <p>
-                                Clear communication, simple steps and no unnecessary
-                                complexity.
+                            <p className="section-label">
+                                {t('home.process.label')}
                             </p>
+
+                            <h2>
+                                {t('home.process.title')}
+                            </h2>
                         </div>
 
                         <div className="process-grid">
                             <article className="process-card">
-                                <div className="process-number">01</div>
+                                <div className="process-number">
+                                    01
+                                </div>
 
-                                <h3>Consultation</h3>
+                                <h3>
+                                    {t('home.process.step1.title')}
+                                </h3>
 
                                 <p>
-                                    We discuss your business, goals, customers and what you
-                                    need from your website.
+                                    {t('home.process.step1.description')}
                                 </p>
                             </article>
 
                             <article className="process-card">
-                                <div className="process-number">02</div>
+                                <div className="process-number">
+                                    02
+                                </div>
 
-                                <h3>Planning</h3>
+                                <h3>
+                                    {t('home.process.step2.title')}
+                                </h3>
 
                                 <p>
-                                    I define the structure, pages, content and overall
-                                    direction before development begins.
+                                    {t('home.process.step2.description')}
                                 </p>
                             </article>
 
                             <article className="process-card">
-                                <div className="process-number">03</div>
+                                <div className="process-number">
+                                    03
+                                </div>
 
-                                <h3>Design & Development</h3>
+                                <h3>
+                                    {t('home.process.step3.title')}
+                                </h3>
 
                                 <p>
-                                    Your website is designed and developed with responsive
-                                    layouts, clear content and modern styling.
+                                    {t('home.process.step3.description')}
                                 </p>
                             </article>
 
                             <article className="process-card">
-                                <div className="process-number">04</div>
+                                <div className="process-number">
+                                    04
+                                </div>
 
-                                <h3>Launch</h3>
+                                <h3>
+                                    {t('home.process.step4.title')}
+                                </h3>
 
                                 <p>
-                                    After your review and approval, the website is deployed
-                                    and connected to your custom domain.
+                                    {t('home.process.step4.description')}
                                 </p>
                             </article>
                         </div>
@@ -331,67 +396,79 @@ function Home() {
                 <section className="why-section">
                     <div className="section-container why-container">
                         <div className="why-content">
-                            <p className="section-label">Why Choose Me</p>
+                            <p className="section-label">
+                                {t('home.why.label')}
+                            </p>
 
                             <h2>
-                                Simple, Professional Websites Without the Complexity
+                                {t('home.why.title')}
                             </h2>
 
                             <p className="why-intro">
-                                I focus on creating clear, modern websites that are easy
-                                for your customers to use and easy for your business to
-                                manage.
+                                {t('home.why.intro')}
                             </p>
 
                             <div className="why-list">
                                 <div className="why-item">
-                                    <div className="why-icon">✓</div>
+                                    <div className="why-icon">
+                                        ✓
+                                    </div>
 
                                     <div>
-                                        <h3>Direct Communication</h3>
+                                        <h3>
+                                            {t('home.why.responsive.title')}
+                                        </h3>
 
                                         <p>
-                                            You work directly with the developer building your
-                                            website.
+                                            {t('home.why.responsive.description')}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="why-item">
-                                    <div className="why-icon">✓</div>
+                                    <div className="why-icon">
+                                        ✓
+                                    </div>
 
                                     <div>
-                                        <h3>Transparent Pricing</h3>
+                                        <h3>
+                                            {t('home.why.clear.title')}
+                                        </h3>
 
                                         <p>
-                                            Clear project scope and pricing before development
-                                            begins.
+                                            {t('home.why.clear.description')}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="why-item">
-                                    <div className="why-icon">✓</div>
+                                    <div className="why-icon">
+                                        ✓
+                                    </div>
 
                                     <div>
-                                        <h3>Responsive Design</h3>
+                                        <h3>
+                                            {t('home.why.practical.title')}
+                                        </h3>
 
                                         <p>
-                                            Your website works smoothly across mobile, tablet
-                                            and desktop.
+                                            {t('home.why.practical.description')}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="why-item">
-                                    <div className="why-icon">✓</div>
+                                    <div className="why-icon">
+                                        ✓
+                                    </div>
 
                                     <div>
-                                        <h3>Optional Support</h3>
+                                        <h3>
+                                            {t('home.why.support.title')}
+                                        </h3>
 
                                         <p>
-                                            You can choose ongoing website support after your
-                                            site is launched.
+                                            {t('home.why.support.description')}
                                         </p>
                                     </div>
                                 </div>
@@ -401,84 +478,76 @@ function Home() {
                         <div className="why-visual">
                             <div className="why-card">
                                 <div className="why-card-header">
-                                    <span>Mayuri Web Studio</span>
-                                    <span>Sweden</span>
+                                    <span>
+                                        {t('home.why.cardLabel')}
+                                    </span>
                                 </div>
 
                                 <div className="why-stat">
-                                    <strong>Modern</strong>
-                                    <span>Clean and professional design</span>
+                                    <strong>
+                                        {t('home.why.stat1')}
+                                    </strong>
+
+                                    <span>
+                                        {t('home.why.stat1Text')}
+                                    </span>
                                 </div>
 
                                 <div className="why-stat">
-                                    <strong>Responsive</strong>
-                                    <span>Designed for every screen size</span>
+                                    <strong>
+                                        {t('home.why.stat2')}
+                                    </strong>
+
+                                    <span>
+                                        {t('home.why.stat2Text')}
+                                    </span>
                                 </div>
 
                                 <div className="why-stat">
-                                    <strong>Reliable</strong>
-                                    <span>Simple development and deployment</span>
-                                </div>
+                                    <strong>
+                                        {t('home.why.stat3')}
+                                    </strong>
 
-                                <div className="why-stat">
-                                    <strong>Focused</strong>
-                                    <span>Built around your business goals</span>
+                                    <span>
+                                        {t('home.why.stat3Text')}
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
                 {/* TESTIMONIALS */}
-                <section className="testimonials">
+                {/* <section className="testimonials-section">
                     <div className="section-container">
                         <div className="section-heading">
-                            <p className="section-label">Client Feedback</p>
+                            <p className="section-label">
+                                {t('home.testimonials.label')}
+                            </p>
 
-                            <h2>What Clients Say</h2>
+                            <h2>
+                                {t('home.testimonials.title')}
+                            </h2>
 
                             <p>
-                                Feedback from businesses I’ve worked with.
+                                {t('home.testimonials.description')}
                             </p>
                         </div>
-
-                        <div className="testimonial-grid">
-                            <article className="testimonial-card">
-                                <div className="testimonial-stars">★★★★★</div>
-
-                                <p className="testimonial-text">
-                                    “Mayuri was easy to work with and created a clean,
-                                    professional website that works well on mobile.”
-                                </p>
-
-                                <div className="testimonial-author">
-                                    <div className="testimonial-avatar">
-                                        <span>M</span>
-                                    </div>
-
-                                    <div>
-                                        <strong>Client Name</strong>
-                                        <span>Business Name</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
                     </div>
-                </section>
+                </section>*/}
                 {/* FINAL CTA */}
                 <section className="final-cta">
                     <div className="section-container final-cta-container">
                         <div>
                             <p className="section-label">
-                                Ready to Get Started?
+                                {t('home.finalCta.label')}
                             </p>
 
                             <h2>
-                                Let’s Build a Website That Works for Your Business
+                                {t('home.finalCta.title')}
                             </h2>
 
                             <p>
-                                Tell me about your business and what you need. I’ll help
-                                you choose a simple and practical website solution.
+                                {t('home.finalCta.description')}
                             </p>
                         </div>
 
@@ -486,7 +555,7 @@ function Home() {
                             to="/contact"
                             className="final-cta-btn"
                         >
-                            Get a Free Consultation
+                            {t('home.finalCta.button')}
                         </Link>
                     </div>
                 </section>

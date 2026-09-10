@@ -1,211 +1,265 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import '../styles/legal.css';
 
 function Privacy() {
+    const { t, i18n } = useTranslation();
+
     return (
         <>
             <Helmet>
-                <title>Privacy Policy | Mayuri Web Studio</title>
+                <title>{t('seo.privacy.title')}</title>
 
                 <meta
                     name="description"
-                    content="Privacy Policy for Mayuri Web Studio explaining how personal information is collected and used."
+                    content={t('seo.privacy.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/privacy"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.privacy.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.privacy.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/privacy"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
             <main className="legal-page">
+                {/* HERO */}
                 <section className="legal-hero">
                     <div className="legal-container">
-                        <p className="section-label">Legal</p>
+                        <p className="section-label">
+                            {t('privacyPage.hero.label')}
+                        </p>
 
-                        <h1>Privacy Policy</h1>
+                        <h1>
+                            {t('privacyPage.hero.title')}
+                        </h1>
 
                         <p>
-                            This Privacy Policy explains how Mayuri Web Studio
-                            collects, uses and protects personal information
-                            submitted through this website.
+                            {t('privacyPage.hero.description')}
                         </p>
                     </div>
                 </section>
 
+                {/* CONTENT */}
                 <section className="legal-content-section">
                     <div className="legal-container legal-content">
                         <div className="legal-updated">
-                            Last updated: September 2026
+                            {t('privacyPage.lastUpdated')}
                         </div>
 
+                        {/* 1 */}
                         <section>
-                            <h2>1. Information I Collect</h2>
+                            <h2>
+                                {t('privacyPage.information.title')}
+                            </h2>
 
                             <p>
-                                When you contact Mayuri Web Studio through the
-                                website, you may provide personal information
-                                such as:
+                                {t('privacyPage.information.description')}
                             </p>
 
                             <ul>
-                                <li>Your name</li>
-                                <li>Your email address</li>
-                                <li>Your business name</li>
-                                <li>The service you are interested in</li>
                                 <li>
-                                    Information you include in your project
-                                    enquiry or message
+                                    {t('privacyPage.information.name')}
+                                </li>
+
+                                <li>
+                                    {t('privacyPage.information.email')}
+                                </li>
+
+                                <li>
+                                    {t('privacyPage.information.business')}
+                                </li>
+
+                                <li>
+                                    {t('privacyPage.information.service')}
+                                </li>
+
+                                <li>
+                                    {t('privacyPage.information.message')}
                                 </li>
                             </ul>
                         </section>
 
+                        {/* 2 */}
                         <section>
-                            <h2>2. How Your Information Is Used</h2>
+                            <h2>
+                                {t('privacyPage.usage.title')}
+                            </h2>
 
                             <p>
-                                Information submitted through the website is
-                                used to:
+                                {t('privacyPage.usage.description')}
                             </p>
 
                             <ul>
-                                <li>Respond to your enquiry</li>
                                 <li>
-                                    Understand your website or business
-                                    requirements
+                                    {t('privacyPage.usage.respond')}
                                 </li>
+
                                 <li>
-                                    Communicate with you about potential
-                                    services
+                                    {t('privacyPage.usage.understand')}
                                 </li>
+
                                 <li>
-                                    Provide information or quotations you
-                                    request
+                                    {t('privacyPage.usage.communicate')}
+                                </li>
+
+                                <li>
+                                    {t('privacyPage.usage.quotation')}
                                 </li>
                             </ul>
 
                             <p>
-                                Your information is not sold to third parties.
+                                {t('privacyPage.usage.notSold')}
                             </p>
                         </section>
 
+                        {/* 3 */}
                         <section>
-                            <h2>3. Contact Form</h2>
+                            <h2>
+                                {t('privacyPage.contactForm.title')}
+                            </h2>
 
                             <p>
-                                This website uses Formspree to process contact
-                                form submissions.
+                                {t('privacyPage.contactForm.description1')}
                             </p>
 
                             <p>
-                                When you submit the contact form, the
-                                information you enter is sent through
-                                Formspree so that Mayuri Web Studio can receive
-                                and respond to your message.
+                                {t('privacyPage.contactForm.description2')}
                             </p>
 
                             <p>
-                                Formspree may process information according to
-                                its own privacy and data-processing practices.
+                                {t('privacyPage.contactForm.description3')}
                             </p>
                         </section>
 
+                        {/* 4 */}
                         <section>
-                            <h2>4. How Long Information Is Kept</h2>
+                            <h2>
+                                {t('privacyPage.retention.title')}
+                            </h2>
 
                             <p>
-                                Personal information is kept only for as long
-                                as reasonably necessary to respond to your
-                                enquiry, communicate about requested services
-                                or meet applicable legal and administrative
-                                requirements.
+                                {t('privacyPage.retention.description')}
                             </p>
                         </section>
 
+                        {/* 5 */}
                         <section>
-                            <h2>5. Sharing of Information</h2>
+                            <h2>
+                                {t('privacyPage.sharing.title')}
+                            </h2>
 
                             <p>
-                                Personal information is not sold, rented or
-                                traded.
+                                {t('privacyPage.sharing.description1')}
                             </p>
 
                             <p>
-                                Information may be processed by service
-                                providers that are necessary for operating
-                                this website or handling enquiries, such as
-                                website hosting and form-processing providers.
+                                {t('privacyPage.sharing.description2')}
                             </p>
                         </section>
 
+                        {/* 6 */}
                         <section>
-                            <h2>6. Your Rights</h2>
+                            <h2>
+                                {t('privacyPage.rights.title')}
+                            </h2>
 
                             <p>
-                                Depending on applicable data protection law,
-                                you may have rights regarding your personal
-                                information, including the right to request
-                                access, correction or deletion of your data.
+                                {t('privacyPage.rights.description1')}
                             </p>
 
                             <p>
-                                You may also contact Mayuri Web Studio if you
-                                have questions about how your information is
-                                handled.
+                                {t('privacyPage.rights.description2')}
                             </p>
                         </section>
 
+                        {/* 7 */}
                         <section>
-                            <h2>7. Data Security</h2>
+                            <h2>
+                                {t('privacyPage.security.title')}
+                            </h2>
 
                             <p>
-                                Reasonable measures are taken to protect
-                                information submitted through this website.
-                                However, no method of internet transmission or
-                                electronic storage can be guaranteed to be
-                                completely secure.
+                                {t('privacyPage.security.description')}
                             </p>
                         </section>
 
+                        {/* 8 */}
                         <section>
-                            <h2>8. Third-Party Services</h2>
+                            <h2>
+                                {t('privacyPage.thirdParty.title')}
+                            </h2>
 
                             <p>
-                                This website may rely on third-party services
-                                for hosting, form processing and other
-                                technical functionality.
+                                {t('privacyPage.thirdParty.description1')}
                             </p>
 
                             <p>
-                                Those providers may process limited technical
-                                or personal information as part of providing
-                                their services.
+                                {t('privacyPage.thirdParty.description2')}
                             </p>
                         </section>
 
+                        {/* 9 */}
                         <section>
-                            <h2>9. Changes to This Privacy Policy</h2>
+                            <h2>
+                                {t('privacyPage.changes.title')}
+                            </h2>
 
                             <p>
-                                This Privacy Policy may be updated when the
-                                website, services or data-processing practices
-                                change.
+                                {t('privacyPage.changes.description1')}
                             </p>
 
                             <p>
-                                The latest version will always be published on
-                                this page.
+                                {t('privacyPage.changes.description2')}
                             </p>
                         </section>
 
+                        {/* 10 */}
                         <section>
-                            <h2>10. Contact</h2>
+                            <h2>
+                                {t('privacyPage.contact.title')}
+                            </h2>
 
                             <p>
-                                If you have questions about this Privacy Policy
-                                or your personal information, you can contact:
+                                {t('privacyPage.contact.description')}
                             </p>
 
                             <div className="legal-contact-card">
                                 <strong>Mayuri Web Studio</strong>
 
-                                <span>Stockholm, Sweden</span>
+                                <span>
+                                    {t('privacyPage.contact.location')}
+                                </span>
 
                                 <a href="mailto:mayuri.vijaya@gmail.com">
                                     mayuri.vijaya@gmail.com

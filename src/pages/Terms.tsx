@@ -1,328 +1,265 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import '../styles/legal.css';
 
 function Terms() {
+    const { t, i18n } = useTranslation();
+
     return (
         <>
             <Helmet>
-                <title>Terms & Conditions | Mayuri Web Studio</title>
+                <title>{t('seo.terms.title')}</title>
 
                 <meta
                     name="description"
-                    content="Terms and conditions for website design and development services provided by Mayuri Web Studio."
+                    content={t('seo.terms.description')}
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://mayuriwebstudio.se/terms"
+                />
+
+                <meta
+                    property="og:title"
+                    content={t('seo.terms.title')}
+                />
+
+                <meta
+                    property="og:description"
+                    content={t('seo.terms.description')}
+                />
+
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://mayuriwebstudio.se/terms"
+                />
+
+                <meta
+                    property="og:site_name"
+                    content="Mayuri Web Studio"
+                />
+
+                <meta
+                    property="og:locale"
+                    content={i18n.language.startsWith('sv') ? 'sv_SE' : 'en_SE'}
                 />
             </Helmet>
 
             <main className="legal-page">
+                {/* HERO */}
                 <section className="legal-hero">
                     <div className="legal-container">
-                        <p className="section-label">Legal</p>
-
-                        <h1>Terms & Conditions</h1>
-
-                        <p>
-                            These terms explain the general conditions that
-                            apply when working with Mayuri Web Studio for
-                            website design, development and related services.
+                        <p className="section-label">
+                            {t('termsPage.hero.label')}
                         </p>
+
+                        <h1>{t('termsPage.hero.title')}</h1>
+
+                        <p>{t('termsPage.hero.description')}</p>
                     </div>
                 </section>
 
                 <section className="legal-content-section">
                     <div className="legal-container legal-content">
                         <div className="legal-updated">
-                            Last updated: September 2026
+                            {t('termsPage.lastUpdated')}
                         </div>
 
+                        {/* 1 */}
                         <section>
-                            <h2>1. About These Terms</h2>
+                            <h2>{t('termsPage.about.title')}</h2>
 
-                            <p>
-                                These Terms & Conditions apply to services
-                                provided by Mayuri Web Studio, including website
-                                design, website development, redesign,
-                                maintenance and related digital services.
-                            </p>
+                            <p>{t('termsPage.about.description1')}</p>
 
-                            <p>
-                                Specific project requirements, pricing,
-                                timelines and deliverables may also be agreed
-                                separately in writing before work begins.
-                            </p>
+                            <p>{t('termsPage.about.description2')}</p>
                         </section>
 
+                        {/* 2 */}
                         <section>
-                            <h2>2. Project Scope</h2>
+                            <h2>{t('termsPage.scope.title')}</h2>
 
-                            <p>
-                                Before a project begins, the expected scope of
-                                work will be discussed and agreed.
-                            </p>
+                            <p>{t('termsPage.scope.description1')}</p>
 
-                            <p>
-                                This may include items such as:
-                            </p>
+                            <p>{t('termsPage.scope.description2')}</p>
 
                             <ul>
-                                <li>Number of website pages</li>
-                                <li>Website features and functionality</li>
-                                <li>Design requirements</li>
-                                <li>Content requirements</li>
-                                <li>Estimated delivery timeline</li>
-                                <li>Project price</li>
+                                <li>{t('termsPage.scope.pages')}</li>
+                                <li>{t('termsPage.scope.features')}</li>
+                                <li>{t('termsPage.scope.design')}</li>
+                                <li>{t('termsPage.scope.content')}</li>
+                                <li>{t('termsPage.scope.timeline')}</li>
+                                <li>{t('termsPage.scope.price')}</li>
                             </ul>
 
-                            <p>
-                                Additional work requested outside the agreed
-                                project scope may require additional time and
-                                cost.
-                            </p>
+                            <p>{t('termsPage.scope.additional')}</p>
                         </section>
 
+                        {/* 3 */}
                         <section>
-                            <h2>3. Client Responsibilities</h2>
+                            <h2>{t('termsPage.client.title')}</h2>
 
-                            <p>
-                                Clients are responsible for providing the
-                                information and materials needed to complete
-                                the project.
-                            </p>
+                            <p>{t('termsPage.client.description1')}</p>
 
-                            <p>
-                                This may include:
-                            </p>
+                            <p>{t('termsPage.client.description2')}</p>
 
                             <ul>
-                                <li>Business information</li>
-                                <li>Text and website content</li>
-                                <li>Logos and branding materials</li>
-                                <li>Images and other media</li>
-                                <li>
-                                    Feedback and approvals within a reasonable
-                                    timeframe
-                                </li>
+                                <li>{t('termsPage.client.business')}</li>
+                                <li>{t('termsPage.client.text')}</li>
+                                <li>{t('termsPage.client.branding')}</li>
+                                <li>{t('termsPage.client.images')}</li>
+                                <li>{t('termsPage.client.feedback')}</li>
                             </ul>
 
+                            <p>{t('termsPage.client.delays')}</p>
+                        </section>
+
+                        {/* 4 */}
+                        <section>
+                            <h2>{t('termsPage.copyright.title')}</h2>
+
                             <p>
-                                Delays in receiving required content, feedback
-                                or approvals may affect the project timeline.
+                                {t('termsPage.copyright.description1')}
+                            </p>
+
+                            <p>
+                                {t('termsPage.copyright.description2')}
                             </p>
                         </section>
 
+                        {/* 5 */}
                         <section>
-                            <h2>4. Content and Copyright</h2>
+                            <h2>{t('termsPage.payment.title')}</h2>
+
+                            <p>{t('termsPage.payment.description1')}</p>
+
+                            <p>{t('termsPage.payment.description2')}</p>
+
+                            <p>{t('termsPage.payment.description3')}</p>
+                        </section>
+
+                        {/* 6 */}
+                        <section>
+                            <h2>{t('termsPage.timelines.title')}</h2>
+
+                            <p>{t('termsPage.timelines.description1')}</p>
+
+                            <p>{t('termsPage.timelines.description2')}</p>
+                        </section>
+
+                        {/* 7 */}
+                        <section>
+                            <h2>{t('termsPage.revisions.title')}</h2>
+
+                            <p>{t('termsPage.revisions.description1')}</p>
+
+                            <p>{t('termsPage.revisions.description2')}</p>
+                        </section>
+
+                        {/* 8 */}
+                        <section>
+                            <h2>{t('termsPage.domain.title')}</h2>
+
+                            <p>{t('termsPage.domain.description1')}</p>
+
+                            <p>{t('termsPage.domain.description2')}</p>
+
+                            <p>{t('termsPage.domain.description3')}</p>
+                        </section>
+
+                        {/* 9 */}
+                        <section>
+                            <h2>{t('termsPage.thirdParty.title')}</h2>
 
                             <p>
-                                Clients are responsible for ensuring that the
-                                content, images, logos and other materials they
-                                provide can legally be used on their website.
+                                {t('termsPage.thirdParty.description1')}
                             </p>
 
                             <p>
-                                Mayuri Web Studio is not responsible for
-                                copyright or ownership issues relating to
-                                materials supplied by the client.
+                                {t('termsPage.thirdParty.description2')}
                             </p>
                         </section>
 
+                        {/* 10 */}
                         <section>
-                            <h2>5. Pricing and Payment</h2>
+                            <h2>{t('termsPage.testing.title')}</h2>
+
+                            <p>{t('termsPage.testing.description1')}</p>
+
+                            <p>{t('termsPage.testing.description2')}</p>
+                        </section>
+
+                        {/* 11 */}
+                        <section>
+                            <h2>{t('termsPage.maintenance.title')}</h2>
 
                             <p>
-                                Project pricing will normally be agreed before
-                                development begins.
+                                {t('termsPage.maintenance.description1')}
                             </p>
 
                             <p>
-                                Payment terms, including any deposit, milestone
-                                payment or final payment, will be communicated
-                                as part of the project agreement.
-                            </p>
-
-                            <p>
-                                Additional work that falls outside the agreed
-                                project scope may be quoted separately.
+                                {t('termsPage.maintenance.description2')}
                             </p>
                         </section>
 
+                        {/* 12 */}
                         <section>
-                            <h2>6. Project Timelines</h2>
+                            <h2>{t('termsPage.portfolio.title')}</h2>
+
+                            <p>{t('termsPage.portfolio.description1')}</p>
+
+                            <p>{t('termsPage.portfolio.description2')}</p>
+                        </section>
+
+                        {/* 13 */}
+                        <section>
+                            <h2>{t('termsPage.liability.title')}</h2>
+
+                            <p>{t('termsPage.liability.description1')}</p>
+
+                            <p>{t('termsPage.liability.description2')}</p>
+                        </section>
+
+                        {/* 14 */}
+                        <section>
+                            <h2>{t('termsPage.cancellation.title')}</h2>
 
                             <p>
-                                Estimated project timelines are based on the
-                                agreed scope and the availability of required
-                                content, information and feedback.
+                                {t('termsPage.cancellation.description1')}
                             </p>
 
                             <p>
-                                Reasonable efforts will be made to meet agreed
-                                delivery dates, but timelines may need to change
-                                if project requirements change or required
-                                information is delayed.
+                                {t('termsPage.cancellation.description2')}
                             </p>
                         </section>
 
+                        {/* 15 */}
                         <section>
-                            <h2>7. Revisions</h2>
+                            <h2>{t('termsPage.changes.title')}</h2>
 
-                            <p>
-                                Reasonable revisions may be included as part of
-                                a website project depending on what has been
-                                agreed before development begins.
-                            </p>
+                            <p>{t('termsPage.changes.description1')}</p>
 
-                            <p>
-                                Significant design changes, new features or
-                                repeated revisions outside the agreed scope may
-                                be treated as additional work.
-                            </p>
+                            <p>{t('termsPage.changes.description2')}</p>
                         </section>
 
+                        {/* 16 */}
                         <section>
-                            <h2>8. Domain and Hosting</h2>
+                            <h2>{t('termsPage.contact.title')}</h2>
 
-                            <p>
-                                Domain registration and website hosting may be
-                                managed by the client or arranged separately
-                                depending on the project.
-                            </p>
-
-                            <p>
-                                Where possible, clients are encouraged to keep
-                                ownership of their own domain and hosting
-                                accounts.
-                            </p>
-
-                            <p>
-                                Third-party hosting providers, domain
-                                registrars and other external services operate
-                                under their own terms and conditions.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>9. Third-Party Services</h2>
-
-                            <p>
-                                A website may use third-party tools or services,
-                                such as hosting platforms, contact form
-                                providers, analytics, booking systems or other
-                                integrations.
-                            </p>
-
-                            <p>
-                                Mayuri Web Studio cannot guarantee the
-                                continued availability, pricing or operation of
-                                third-party services.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>10. Website Testing</h2>
-
-                            <p>
-                                Websites will be tested on commonly used modern
-                                browsers and devices before delivery.
-                            </p>
-
-                            <p>
-                                It may not be possible to guarantee identical
-                                appearance or functionality on every browser,
-                                device or older software version.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>11. Maintenance and Updates</h2>
-
-                            <p>
-                                Ongoing website maintenance is not automatically
-                                included unless specifically agreed as part of
-                                the project or a separate maintenance service.
-                            </p>
-
-                            <p>
-                                Future changes, updates or support requests may
-                                be quoted separately.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>12. Portfolio Use</h2>
-
-                            <p>
-                                Mayuri Web Studio may ask for permission to
-                                display completed website work in its portfolio
-                                or marketing materials.
-                            </p>
-
-                            <p>
-                                Client work will not be presented as portfolio
-                                work without appropriate permission where such
-                                permission is required.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>13. Limitation of Liability</h2>
-
-                            <p>
-                                Reasonable care will be taken when designing and
-                                developing websites.
-                            </p>
-
-                            <p>
-                                However, Mayuri Web Studio cannot guarantee that
-                                a website will always operate without
-                                interruption, that third-party services will
-                                remain available or that a website will
-                                generate a specific level of traffic, sales or
-                                business results.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>14. Cancellation</h2>
-
-                            <p>
-                                If a project is cancelled after work has begun,
-                                payment may still be required for work already
-                                completed up to the date of cancellation.
-                            </p>
-
-                            <p>
-                                Any specific cancellation terms may also be
-                                agreed before the project begins.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>15. Changes to These Terms</h2>
-
-                            <p>
-                                These Terms & Conditions may be updated as the
-                                services offered by Mayuri Web Studio change.
-                            </p>
-
-                            <p>
-                                The latest version will be published on this
-                                page.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2>16. Contact</h2>
-
-                            <p>
-                                If you have questions about these terms, please
-                                contact:
-                            </p>
+                            <p>{t('termsPage.contact.description')}</p>
 
                             <div className="legal-contact-card">
                                 <strong>Mayuri Web Studio</strong>
 
-                                <span>Stockholm, Sweden</span>
+                                <span>
+                                    {t('termsPage.contact.location')}
+                                </span>
 
                                 <a href="mailto:mayuri.vijaya@gmail.com">
                                     mayuri.vijaya@gmail.com
