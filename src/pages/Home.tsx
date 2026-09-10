@@ -89,7 +89,7 @@ function Home() {
                         {/* HERO WEBSITE PREVIEW */}
                         <div className="hero-visual">
                             <img
-                                src="/images/home-hero.png"
+                                src="/images/home-heo.png"
                                 alt="Mayuri Web Studio creating modern websites for small businesses"
                                 className="hero-image"
                             />
