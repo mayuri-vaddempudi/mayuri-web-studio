@@ -202,8 +202,8 @@ function Contact() {
                                         {t('contactPage.info.email')}
                                     </span>
 
-                                    <a href="mailto:mayuri.vijaya@gmail.com">
-                                        mayuri.vijaya@gmail.com
+                                   <a href="mailto:hello@mayuriwebstudio.se" className="contact-email">
+                                        hello@mayuriwebstudio.se
                                     </a>
                                 </div>
 

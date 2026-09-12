@@ -299,7 +299,15 @@
     opacity: 0.65;
     cursor: not-allowed;
 }
+.contact-email {
+    font-weight: 700;
+    color: inherit;
+    text-decoration: none;
+}
 
+.contact-email:hover {
+    text-decoration: underline;
+}
 /* =========================
    FORM NOTE
 ========================= */
